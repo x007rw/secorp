@@ -5,6 +5,9 @@ import { getLocalizedPath } from '../i18n/ui';
 const lang = 'ja' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
+// 1967年7月創業からの年数（ビルド時に算出）
+const yearsInBusiness = new Date().getFullYear() - 1967;
+
 const products = [
   {
     title: 'RCセグメント',
@@ -106,7 +109,7 @@ const products = [
       </div>
       <div class="grid grid-cols-3 gap-3 text-center">
         <div class="bg-slate-50 p-5 rounded border border-slate-200">
-          <div class="text-3xl font-bold text-brand-900">57<span class="text-base text-slate-500">年</span></div>
+          <div class="text-3xl font-bold text-brand-900">{yearsInBusiness}<span class="text-base text-slate-500">年</span></div>
           <p class="text-xs text-slate-600 mt-1">事業歴<br />（1967年創業）</p>
         </div>
         <div class="bg-slate-50 p-5 rounded border border-slate-200">
