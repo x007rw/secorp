@@ -42,12 +42,10 @@
 /en/contact-us/                                                            /en/contact/                                 301
 
 # === WordPress 旧URL（クエリパラメータ）→ 新URL ===
+# 注意: Cloudflare Pages の _redirects はクエリパラメータマッチを正しく扱えず、
+#       `/?page_id=22` 形式は `/` 全リクエストにマッチしてリダイレクトループを起こすため削除済み。
+#       必要なら Cloudflare ダッシュボードの Redirect Rules で実装すること。
 /wordpress/                                                                /                                            301
-/?page_id=22                                                               /company/about/                              301
-/?page_id=60                                                               /company/philosophy/                         301
-/?page_id=16                                                               /products/shield-segment/steel/              301
-/?page_id=18                                                               /products/shield-segment/rc/                 301
-/?page_id=89                                                               /products/iot/crack-sensor/                  301
 
 # === ドメイン正規化 ===
 # 旧ドメイン secorp.work からのアクセスは Cloudflare DNS 設定で .co.jp 側にプロキシし、
