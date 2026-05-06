@@ -3,56 +3,52 @@ import Layout from '../../../layouts/Layout.astro';
 const lang = 'en' as const;
 
 const profile = [
-  { label: 'Company Name', value: 'SUZUKI ENTERPRISE CO., LTD.' },
-  { label: 'Headquarters', value: 'SUZUKI BLDG. 3F, 2-2-34 Kizuki, Nakahara-ku, Kawasaki, Kanagawa 211-0025, JAPAN' },
-  { label: 'Phone / Fax', value: 'TEL: +81-44-433-6399 / FAX: +81-44-434-8488' },
+  { label: 'Company', value: 'SUZUKI ENTERPRISE CO., LTD. (株式会社鈴木エンタープライズ)' },
+  { label: 'Address', value: 'Suzuki Bldg. 3F, 2-2-34 Kizuki, Nakahara-ku, Kawasaki, Kanagawa 211-0025, JAPAN' },
+  { label: 'TEL / FAX', value: 'TEL: +81-44-433-6399 / FAX: +81-44-434-8488' },
   { label: 'Founded', value: 'July 1967' },
   { label: 'Capital', value: '80,000,000 JPY' },
   { label: 'Corporate Number', value: '3020001076051' },
-  { label: 'Business', value: 'Import and wholesale of steel/non-ferrous raw materials and processed products for civil engineering, construction, and plant industries' },
-  { label: 'Main Products', value: 'Shield segments (Steel/RC), concrete reinforcement materials, insulation, plant equipment, IoT sensors' },
+  { label: 'Representative', value: 'Hiroya Suzuki, President' },
+  { label: 'Business', value: 'Import and wholesale of steel and non-ferrous raw materials and processed products for civil engineering, construction, and plant industries' },
+  { label: 'Banks', value: 'SMBC, Bank of Yokohama, Johnan Shinkin Bank' },
 ];
 ---
 
 <Layout
-  title="Company Profile"
-  description="Profile of SUZUKI ENTERPRISE CO., LTD. Founded in 1967 in Kawasaki, Japan. Trading specialist of shield segments and concrete reinforcement materials."
+  title="Company Overview"
+  description="SUZUKI ENTERPRISE CO., LTD. company profile. Founded in 1967 in Kawasaki, Japan. Trading specialist of shield segments and concrete reinforcement materials."
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">COMPANY PROFILE</p>
-      <h1 class="text-3xl md:text-5xl font-bold">Company Profile</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      Company Overview
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">会社概要</p>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
-    <div class="prose-jp">
-      <h2>Basic Information</h2>
-      <table>
-        <tbody>
-          {profile.map((row) => (
-            <tr>
-              <th class="w-1/3 align-top">{row.label}</th>
-              <td>{row.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="grid md:grid-cols-2 gap-10">
+      <dl class="divide-y divide-slate-200 text-sm">
+        {profile.map((row) => (
+          <div class="grid grid-cols-3 gap-3 py-3.5">
+            <dt class="font-semibold text-slate-600 col-span-1">{row.label}</dt>
+            <dd class="col-span-2 text-slate-800">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
 
-      <h2>Business Overview</h2>
-      <p>
-        SUZUKI ENTERPRISE CO., LTD. procures high-quality, cost-effective civil
-        engineering and construction materials from around the world to support
-        Japan's infrastructure development.
-      </p>
-      <p>
-        For over half a century, we have worked primarily across East Asia on
-        improving the quality and reducing the cost of steel and construction
-        materials. Our shield-segment business has supplied projects including
-        Tokyo Metropolitan Expressway, NEXCO East Japan, Yokohama Municipal
-        Subway, and Singapore MRT.
-      </p>
+      <div>
+        <iframe
+          class="w-full h-72 rounded shadow-sm border border-slate-200"
+          src="https://maps.google.co.jp/maps?q=Japan,kanagawa,kawasaki,nakaharaku,kizuki%202-2-34&z=15&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map"
+        ></iframe>
+        <p class="mt-3 text-xs text-slate-500">
+          1 min walk from Motosumiyoshi Stn. (Tokyu Toyoko / Meguro Line)<br />
+          15 min walk from Musashi-Kosugi Stn. (JR / Tokyu)
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
 </Layout>

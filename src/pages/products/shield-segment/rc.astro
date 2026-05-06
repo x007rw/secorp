@@ -7,56 +7,62 @@ const p = (path: string) => getLocalizedPath(path, lang);
 
 <Layout
   title="RCセグメント"
-  description="シールド工法用のRC（鉄筋コンクリート）セグメント。耐圧縮性・耐久性に優れ、長期使用のインフラトンネルに最適。横浜・シンガポール等の納入実績。"
+  description="シールド工法用のRC（鉄筋コンクリート）セグメント。日本基準のセグメントを海外提携工場で監理生産。横浜市営地下鉄・シンガポールMRTほか納入実績多数。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <nav class="text-sm text-gray-300 mb-4">
-        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
-        <a href={p('/products/shield-segment/')} class="hover:text-white">シールドセグメント</a> /
-        <span>RCセグメント</span>
-      </nav>
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">RC SEGMENT</p>
-      <h1 class="text-3xl md:text-5xl font-bold">RCセグメント</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">土木・建設資材</a>
+      <span class="mx-2">/</span>
+      <span>RCセグメント</span>
+    </nav>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      RCセグメント
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">RC Segment</p>
+
     <div class="prose-jp">
-      <h2>RCセグメントとは</h2>
+      <h2>製品概要</h2>
       <p>
-        「RCセグメント（RC Segment）」とは、シールド工法などで作られるトンネルの内壁パーツのうち、RC（Reinforced Concrete／鉄筋コンクリート構造）のものを言います。耐圧縮性・耐久性に優れ、長期使用のインフラトンネルに広く採用されています。
+        RCセグメント（Reinforced Concrete Segment）は、シールド工法によって構築されるトンネルの鉄筋コンクリート製内壁パーツです。耐圧縮性・耐久性に優れ、長期使用のインフラトンネルに広く採用されています。
+      </p>
+      <p>
+        当社では、日本基準に準拠したセグメントを<strong>海外提携工場で監理生産</strong>し、国内ゼネコン・公共事業者にお届けしています。日本の品質基準を維持しながら、グローバルな調達によるコスト競争力を実現しています。
       </p>
 
       <h2>主な用途</h2>
       <ul>
-        <li>地下鉄トンネル</li>
+        <li>地下鉄・鉄道トンネル</li>
         <li>大規模上下水道トンネル</li>
         <li>大深度地下トンネル</li>
-        <li>共同溝</li>
+        <li>共同溝・電力・通信用トンネル</li>
       </ul>
 
       <h2>特長</h2>
       <ul>
-        <li>高い耐圧縮性能</li>
-        <li>長期耐久性（インフラ長寿命化に貢献）</li>
-        <li>コスト効率に優れる</li>
-        <li>標準セグメントから特殊形状まで対応</li>
+        <li>高い耐圧縮性能と長期耐久性</li>
+        <li>日本基準（JIS規格）への適合</li>
+        <li>海外調達によるコスト効率</li>
+        <li>大型・特殊形状にも対応</li>
       </ul>
 
       <h2>主要納入実績</h2>
       <ul>
         <li>横浜市営地下鉄 4号線 白楽工区</li>
         <li>シンガポール地下鉄 C-823 工区</li>
-        <li>その他、国内外の地下インフラプロジェクト多数</li>
+        <li>国土交通省関連 シールド事業</li>
+        <li>各地下鉄・電気・ガス・水道シールド事業</li>
       </ul>
-
-      <p class="mt-6">
-        <a href="/downloads/rc-segment-results.pdf" class="text-accent font-semibold">
-          → RCセグメント実績表（PDF）をダウンロード
-        </a>
-      </p>
     </div>
-  </div>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href={p('/contact/')}
+        class="bg-brand-900 text-white font-semibold px-5 py-3 rounded hover:bg-brand-700 transition-colors"
+      >
+        お問い合わせ →
+      </a>
+    </div>
+  </section>
 </Layout>

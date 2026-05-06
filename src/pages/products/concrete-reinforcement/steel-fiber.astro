@@ -7,22 +7,21 @@ const p = (path: string) => getLocalizedPath(path, lang);
 
 <Layout
   title="スチール・ファイバー"
-  description="RCにおける構造的補強材として使用されるスチールファイバー（鋼繊維）。鉄筋と同等の補強効果を発揮します。"
+  description="鉄筋と同じ「構造的補強」として用いるスチール・ファイバー（鋼繊維）。当社はKOSTEEL社製 BUNDREX® の日本国内総代理店です。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <nav class="text-sm text-gray-300 mb-4">
-        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
-        <a href={p('/products/concrete-reinforcement/')} class="hover:text-white">コンクリート補強材</a> /
-        <span>スチール・ファイバー</span>
-      </nav>
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">STEEL FIBER</p>
-      <h1 class="text-3xl md:text-5xl font-bold">スチール・ファイバー</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">土木・建設資材</a>
+      <span class="mx-2">/</span>
+      <span>スチール・ファイバー</span>
+    </nav>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      スチール・ファイバー
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Steel Fiber</p>
+
     <div class="prose-jp">
       <h2>スチール・ファイバーとは</h2>
       <p>
@@ -32,16 +31,16 @@ const p = (path: string) => getLocalizedPath(path, lang);
         コンクリートに混合することで、引張強度・靱性・耐衝撃性を大幅に向上させます。シールドトンネルライニング、舗装、耐震補強など幅広い分野で採用されています。
       </p>
 
-      <h2>主要製品</h2>
+      <h2>主力商品</h2>
       <p>
-        当社では、ブランド製品「バンドレックス®」をはじめ、多様な仕様のスチールファイバーを取り扱っております。
+        当社は<strong>韓国 KOSTEEL CO., LTD. 社製スチール・ファイバー「BUNDREX®」の日本国内総代理店</strong>です。年間2,000MT規模のSFRCセグメント向け供給体制を構築しています。
       </p>
 
-      <p>
-        <a href={p('/products/concrete-reinforcement/bundrex/')} class="text-accent font-semibold">
+      <p class="mt-4">
+        <a href={p('/products/concrete-reinforcement/bundrex/')} class="text-brand-600 hover:text-accent-600 font-semibold">
           → バンドレックス® の詳細はこちら
         </a>
       </p>
     </div>
-  </div>
+  </section>
 </Layout>

@@ -113,9 +113,9 @@ const orgJsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="bg-white text-slate-800 antialiased">
     <Header lang={lang} currentPath={currentPath} />
-    <main class="flex-1">
+    <main class="pt-16">
       <slot />
     </main>
     <Footer lang={lang} />

@@ -4,82 +4,75 @@ import { getLocalizedPath } from '../../i18n/ui';
 const lang = 'ja' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
-const categories = [
+const products = [
   {
-    title: 'シールドセグメント',
-    href: '/products/shield-segment/',
-    description: 'シールド工法用のトンネル内壁パーツ。鋼製・RC（鉄筋コンクリート）両方を取扱い。',
-    items: ['鋼製セグメント', 'RCセグメント', '大口径鋼製セグメント'],
+    title: 'RCセグメント',
+    en: 'RC Segment',
+    desc: 'シールド工法で構築されるトンネルの鉄筋コンクリート製内壁パーツ。日本基準のセグメントを海外提携工場で監理生産します。',
+    href: '/products/shield-segment/rc/',
   },
   {
-    title: 'コンクリート補強材',
-    href: '/products/concrete-reinforcement/',
-    description: '構造的補強・非構造的補強の各種繊維補強材、メッシュ材を取扱い。',
-    items: ['スチール・ファイバー', 'ポリプロピレン・ファイバー', 'バンドレックス®', 'POWER MESH'],
-  },
-  {
-    title: '防音・保温材',
-    href: '/products/insulation/',
-    description: '建築・プラント分野の遮音・保温資材。',
-    items: ['ポリカーボネート板', 'グラスウール（JIS取得）'],
+    title: '鋼製セグメント',
+    en: 'Steel Segment',
+    desc: 'ガス導管・地下鉄・道路トンネル等に用いる鋼製の内壁セグメント。寸法精度 ±1mm 以内で量産対応。',
+    href: '/products/shield-segment/steel/',
   },
   {
     title: '土木・建築用型枠',
+    en: 'Moulds (Formwork)',
+    desc: 'RCセグメント用型枠など、±0.5mm 以内の寸法精度を要求される高精度型枠。PC床板用型枠の海外製作にも対応。',
     href: '/products/mold/',
-    description: 'PC（プレキャスト）製造用の高耐久型枠。',
-    items: ['RCセグメント用型枠'],
   },
   {
-    title: 'プラント設備資材',
-    href: '/products/plant-equipment/',
-    description: '化学・電力プラント向けの専門資材。',
-    items: ['圧力容器', '環境保全機器', 'フィンチューブ'],
+    title: 'スチール・ファイバー',
+    en: 'Steel Fiber',
+    desc: '鉄筋と同じ「構造的補強」として用いる鋼繊維。韓国KOSTEEL社製 BUNDREX® の日本国内総代理店です。',
+    href: '/products/concrete-reinforcement/bundrex/',
   },
   {
-    title: 'IoTソリューション',
-    href: '/products/iot/',
-    description: 'インフラ構造物のモニタリング技術。',
-    items: ['コンクリート構造物ひび割れ計測センサー'],
+    title: 'ポリプロピレン・ファイバー',
+    en: 'Polypropylene Fiber',
+    desc: 'コンクリートの非構造的補強(ひび割れ・剥離防止)に用いる高強度PP繊維。日本の大手ゼネコンに納入実績。',
+    href: '/products/concrete-reinforcement/pp-fiber/',
+  },
+  {
+    title: 'POWER MESH',
+    en: 'Power Mesh',
+    desc: '高引張強度（最大530MPa超）のメッシュ補強材。エンボス加工による優れたコンクリート付着性能。',
+    href: '/products/concrete-reinforcement/power-mesh/',
   },
 ];
 ---
 
 <Layout
-  title="製品・サービス"
-  description="鈴木エンタープライズの取扱製品一覧。シールドセグメント、コンクリート補強材、防音・保温材、プラント設備資材、IoTソリューションまで幅広くラインナップ。"
+  title="土木・建設資材"
+  description="鈴木エンタープライズの取扱製品一覧：RC/鋼製セグメント、土木建築用型枠、スチール・ファイバー（KOSTEEL BUNDREX®）、ポリプロピレン・ファイバー、POWER MESH。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PRODUCTS</p>
-      <h1 class="text-3xl md:text-5xl font-bold">製品・サービス</h1>
-      <p class="mt-4 text-gray-100 max-w-2xl">
-        土木・建設・プラント分野で使用される各種資材を、世界中から調達してお届けします。
-      </p>
-    </div>
-  </div>
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      土木・建設資材
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Civil Engineering &amp; Construction Materials</p>
 
-  <div class="max-w-6xl mx-auto px-4 py-16">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {categories.map((cat) => (
+      {products.map((product) => (
         <a
-          href={p(cat.href)}
-          class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all"
+          href={p(product.href)}
+          class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all"
         >
-          <h2 class="text-xl font-bold text-brand mb-3 group-hover:text-accent">
-            {cat.title}
-          </h2>
-          <p class="text-sm text-gray-600 mb-4">{cat.description}</p>
-          <ul class="text-xs text-gray-500 space-y-1">
-            {cat.items.map((item) => (
-              <li>・{item}</li>
-            ))}
-          </ul>
-          <div class="mt-4 text-accent text-sm font-semibold">
-            詳しく見る →
+          <div class="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+            <span class="text-slate-500 text-xs uppercase tracking-wider">{product.en}</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">
+              {product.title}
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{product.desc}</p>
+            <span class="inline-block mt-3 text-xs font-semibold text-accent-600">詳しく見る →</span>
           </div>
         </a>
       ))}
     </div>
-  </div>
+  </section>
 </Layout>

@@ -4,52 +4,39 @@ import { getLocalizedPath } from '../../../i18n/ui';
 const lang = 'en' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
-const categories = [
-  {
-    title: 'Shield Segments',
-    href: '/products/shield-segment/',
-    description: 'Tunnel lining segments for shield-method construction. Both steel and RC types available.',
-    items: ['Steel Segments', 'RC Segments', 'Large-diameter Steel Segments'],
-  },
-  {
-    title: 'Concrete Reinforcement',
-    href: '/products/concrete-reinforcement/',
-    description: 'Various fiber and mesh reinforcement materials for structural and non-structural applications.',
-    items: ['Steel Fiber', 'PP Fiber', 'BUNDREX®', 'POWER MESH'],
-  },
-  {
-    title: 'Insulation Materials',
-    href: '/products/insulation/',
-    description: 'Sound and thermal insulation materials for construction and plant industries.',
-    items: ['Polycarbonate sheets', 'Glass wool (JIS-certified)'],
-  },
+const products = [
+  { title: 'RC Segment', desc: 'Reinforced-concrete shield-tunnel lining segments, manufactured at overseas partner plants under Japanese-grade quality control.', href: '/products/shield-segment/rc/' },
+  { title: 'Steel Segment', desc: 'Steel lining segments for gas, subway, and road tunnels — produced to ±1 mm dimensional tolerance.', href: '/products/shield-segment/steel/' },
+  { title: 'Moulds (Formwork)', desc: 'High-precision formwork including RC-segment moulds (±0.5 mm), and PC slab moulds for highway repair.', href: '/products/mold/' },
+  { title: 'Steel Fiber (BUNDREX®)', desc: 'Structural reinforcement fiber for RC. Sole Japanese distributor of KOSTEEL BUNDREX® (Korea).', href: '/products/concrete-reinforcement/bundrex/' },
+  { title: 'Polypropylene Fiber', desc: 'Non-structural PP fiber preventing cracking and spalling. Supplied to leading Japanese general contractors.', href: '/products/concrete-reinforcement/pp-fiber/' },
+  { title: 'POWER MESH', desc: 'High-tensile mesh reinforcement (up to 530+ MPa) with embossed surface for superior concrete adhesion.', href: '/products/concrete-reinforcement/power-mesh/' },
 ];
 ---
 
 <Layout
-  title="Products & Services"
-  description="Product lineup of SUZUKI ENTERPRISE: shield segments, concrete reinforcement, insulation, plant equipment, and IoT solutions."
+  title="Products"
+  description="Product lineup of SUZUKI ENTERPRISE: RC and steel shield segments, civil/architectural moulds, steel fiber (KOSTEEL BUNDREX®), PP fiber, and POWER MESH."
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PRODUCTS</p>
-      <h1 class="text-3xl md:text-5xl font-bold">Products & Services</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      Products
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Civil Engineering &amp; Construction Materials</p>
 
-  <div class="max-w-6xl mx-auto px-4 py-16">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {categories.map((cat) => (
-        <a href={p(cat.href)} class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all">
-          <h2 class="text-xl font-bold text-brand mb-3 group-hover:text-accent">{cat.title}</h2>
-          <p class="text-sm text-gray-600 mb-4">{cat.description}</p>
-          <ul class="text-xs text-gray-500 space-y-1">
-            {cat.items.map((item) => <li>・{item}</li>)}
-          </ul>
-          <div class="mt-4 text-accent text-sm font-semibold">Learn more →</div>
+      {products.map((product) => (
+        <a href={p(product.href)} class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+            <span class="text-slate-500 text-xs uppercase tracking-wider">{product.title}</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">{product.title}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{product.desc}</p>
+          </div>
         </a>
       ))}
     </div>
-  </div>
+  </section>
 </Layout>

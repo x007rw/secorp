@@ -7,26 +7,28 @@ const p = (path: string) => getLocalizedPath(path, lang);
 
 <Layout
   title="ポリプロピレン・ファイバー"
-  description="コンクリートのひび割れ防止・剥離防止に効果的なポリプロピレン・ファイバー（PP Fiber）。非構造的補強の主力製品。"
+  description="コンクリートのひび割れ防止・剥離防止に効果的なポリプロピレン・ファイバー（PP Fiber）。日本の大手ゼネコンに納入実績多数。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <nav class="text-sm text-gray-300 mb-4">
-        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
-        <a href={p('/products/concrete-reinforcement/')} class="hover:text-white">コンクリート補強材</a> /
-        <span>ポリプロピレン・ファイバー</span>
-      </nav>
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PP FIBER</p>
-      <h1 class="text-3xl md:text-5xl font-bold">ポリプロピレン・ファイバー</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">土木・建設資材</a>
+      <span class="mx-2">/</span>
+      <span>ポリプロピレン・ファイバー</span>
+    </nav>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      ポリプロピレン・ファイバー
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Polypropylene Fiber</p>
+
     <div class="prose-jp">
       <h2>ポリプロピレン・ファイバーとは</h2>
       <p>
-        ポリプロピレン・ファイバー（PP Fiber）とは、コンクリートに混ぜて使用する「非構造的補強（Non-Structured Reinforcement）」用の繊維補強材です。主にひび割れ防止・剥離防止を目的として使用されます。
+        ポリプロピレン・ファイバー（PP Fiber）とは、コンクリートに混ぜて使用する「非構造的補強（Non-Structured Reinforcement）」用の繊維補強材です。主に<strong>ひび割れ防止・剥離防止</strong>を目的として使用されます。
+      </p>
+      <p>
+        当社が供給する高強度PP繊維は、日本の大手ゼネコンに納入実績があります。
       </p>
 
       <h2>主な効果</h2>
@@ -45,5 +47,14 @@ const p = (path: string) => getLocalizedPath(path, lang);
         <li>耐火構造物</li>
       </ul>
     </div>
-  </div>
+
+    <div class="mt-10">
+      <a
+        href={p('/contact/')}
+        class="bg-brand-900 text-white font-semibold px-5 py-3 rounded hover:bg-brand-700 transition-colors inline-block"
+      >
+        お問い合わせ →
+      </a>
+    </div>
+  </section>
 </Layout>

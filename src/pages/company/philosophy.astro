@@ -1,50 +1,46 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 const lang = 'ja' as const;
+
+const visions = [
+  { num: 'VISION 1', body: '人間主義によって土木製品・インフラの品質向上とコスト削減を同時に達成する。' },
+  { num: 'VISION 2', body: '広くアジアの人材・技術者を集め、プラットフォームを形成しアジアの土木・インフラに貢献する。' },
+  { num: 'VISION 3', body: 'アジア及び世界に同様のビジネスパートナーと集い、後世の人材育成・技術派生に努める。' },
+];
 ---
 
 <Layout
-  title="経営理念"
-  description="株式会社鈴木エンタープライズの経営理念。世界から優れた資材を調達し、日本の社会基盤づくりに貢献するという創業以来の使命について。"
+  title="企業理念"
+  description="株式会社鈴木エンタープライズの企業理念とビジョン。半世紀以上にわたる東アジアの調達ネットワーク、人間主義によるイノベーションでインフラを支える。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PHILOSOPHY</p>
-      <h1 class="text-3xl md:text-5xl font-bold">経営理念</h1>
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+        企業理念
+      </h1>
+      <p class="text-sm text-slate-500 mb-10 ml-1">Our Concept</p>
+
+      <div class="space-y-5 leading-relaxed text-slate-700">
+        <p>
+          私共、株式会社鈴木エンタープライズは半世紀以上にわたり東アジアを中心に鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。今後も日本のインフラ事業の安全性向上、高品質、コスト削減に努めて参ります。
+        </p>
+        <p>
+          本邦並びに先進国の多くは出生率低下による人口の減少、ひいては土木・インフラ事業に関わる技術者や作業員の減少により、新旧合わせたインフラ構造物の評価・検査体制の維持が困難になりつつあります。安全率の向上とコスト削減を同時に達成する為には、人間の自由な意志と発想によるイノベーションが不可欠だと確信しております。
+        </p>
+        <p>
+          実際に当社の鋼製セグメント製造監理チームは、提携工場における特殊工法の導入により、コスト削減と品質向上の両立を達成して参りました。
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 pt-10">
+        {visions.map((vision) => (
+          <div class="bg-white p-5 rounded shadow-sm border border-slate-200">
+            <p class="text-accent-600 font-semibold text-sm mb-2 tracking-wider">{vision.num}</p>
+            <p class="text-sm text-slate-700 leading-relaxed">{vision.body}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-
-  <div class="max-w-3xl mx-auto px-4 py-16">
-    <div class="prose-jp">
-      <h2>ご挨拶</h2>
-      <p>
-        私共、株式会社鈴木エンタープライズは半世紀以上にわたり、東アジアを中心に鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。
-      </p>
-      <p>
-        これからも、世界各国から高品質・低コストの土木建設資材を調達し、日本の社会基盤づくりに貢献してまいります。
-      </p>
-
-      <h2>私たちの使命</h2>
-      <p>
-        日本のインフラを支える「縁の下の力持ち」として、お客様にとって最適な資材を、最適なタイミングで、最適なコストでお届けすること。それが私たちの使命です。
-      </p>
-
-      <h2>三つの価値</h2>
-      <h3>1. 品質</h3>
-      <p>
-        JIS規格・KS規格に準拠した高品質な資材のみを取り扱い、納入後の安心までを提供します。
-      </p>
-
-      <h3>2. コスト</h3>
-      <p>
-        グローバルな調達ネットワークを活かし、お客様のプロジェクトコスト削減に貢献します。
-      </p>
-
-      <h3>3. 信頼</h3>
-      <p>
-        1967年の創業以来、長期にわたるお客様との信頼関係を最も大切な経営資源と考えています。
-      </p>
-    </div>
-  </div>
+  </section>
 </Layout>

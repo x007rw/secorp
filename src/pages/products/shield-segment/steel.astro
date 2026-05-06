@@ -7,53 +7,65 @@ const p = (path: string) => getLocalizedPath(path, lang);
 
 <Layout
   title="鋼製セグメント"
-  description="シールド工法用の鋼製セグメント。中小口径から大口径まで対応。Steel Structure（鋼製構造）のトンネル内壁パーツとして高い実績。"
+  description="シールド工法用の鋼製セグメント。ガス導管・地下鉄・道路トンネル等の内壁部材。寸法精度±1mm以内で量産対応。大口径鋼製セグメントにも実績多数。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <nav class="text-sm text-gray-300 mb-4">
-        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
-        <a href={p('/products/shield-segment/')} class="hover:text-white">シールドセグメント</a> /
-        <span>鋼製セグメント</span>
-      </nav>
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">STEEL SEGMENT</p>
-      <h1 class="text-3xl md:text-5xl font-bold">鋼製セグメント</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">土木・建設資材</a>
+      <span class="mx-2">/</span>
+      <span>鋼製セグメント</span>
+    </nav>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      鋼製セグメント
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Steel Segment</p>
+
     <div class="prose-jp">
-      <h2>鋼製セグメントとは</h2>
+      <h2>製品概要</h2>
       <p>
-        「鋼製セグメント（Steel Segment）」とは、シールド工法などで作られるトンネルの内壁パーツのうち、Steel Structure（鋼製構造）のものを言います。RC（鉄筋コンクリート）セグメントと比較して軽量で、加工難度の高い形状にも対応できる利点があります。
+        鋼製セグメント（Steel Segment）は、シールド工法によって構築されるトンネルの内壁を構成する鋼製部材です。ガス導管、地下鉄、道路トンネルなど、都市インフラの建設に不可欠な資材として広く使用されています。
+      </p>
+      <p>
+        当社では、提携工場における特殊工法の導入により、<strong>寸法精度 ±1mm 以内</strong>での量産を実現。コスト削減と品質向上の両立を達成しています。
       </p>
 
       <h2>主な用途</h2>
       <ul>
-        <li>中小口径の上下水道用トンネル</li>
+        <li>ガス導管トンネル</li>
+        <li>地下鉄トンネル</li>
+        <li>道路トンネル（大口径対応）</li>
         <li>電力・通信用ケーブルトンネル</li>
-        <li>大口径道路トンネル（大口径鋼製セグメントにも対応）</li>
         <li>異形セグメント（特殊形状）の製作</li>
       </ul>
 
+      <h2>仕様</h2>
+      <table>
+        <tbody>
+          <tr><th>寸法精度</th><td>±1mm 以内</td></tr>
+          <tr><th>対応口径</th><td>中小口径 〜 大口径まで</td></tr>
+          <tr><th>製造体制</th><td>当社製造監理チームによる海外提携工場での監理生産</td></tr>
+          <tr><th>規格</th><td>日本基準（JIS規格）に準拠</td></tr>
+        </tbody>
+      </table>
+
       <h2>特長</h2>
       <ul>
+        <li>高精度な寸法管理（±1mm以内）</li>
         <li>軽量で施工性に優れる</li>
         <li>複雑形状への加工対応力</li>
-        <li>高い品質管理（JIS規格適合品）</li>
         <li>大口径対応の供給体制</li>
       </ul>
-
-      <h2>お問い合わせ</h2>
-      <p>
-        プロジェクトの規模・仕様・納期に応じて最適な製品をご提案いたします。お気軽にお問い合わせください。
-      </p>
-      <p>
-        <a href={p('/contact/')} class="inline-block bg-brand text-white px-6 py-2 rounded-md no-underline hover:bg-accent">
-          お問い合わせフォーム →
-        </a>
-      </p>
     </div>
-  </div>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href={p('/contact/')}
+        class="bg-brand-900 text-white font-semibold px-5 py-3 rounded hover:bg-brand-700 transition-colors"
+      >
+        お問い合わせ →
+      </a>
+    </div>
+  </section>
 </Layout>

@@ -8,14 +8,12 @@ const lang = 'ja' as const;
   description="株式会社鈴木エンタープライズのCookie ポリシー。本サイトでのCookie 使用について。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">COOKIE POLICY</p>
-      <h1 class="text-3xl md:text-5xl font-bold">Cookie ポリシー</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-3xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      Cookie ポリシー
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Cookie Policy</p>
 
-  <div class="max-w-3xl mx-auto px-4 py-16">
     <div class="prose-jp">
       <h2>Cookie とは</h2>
       <p>
@@ -28,7 +26,7 @@ const lang = 'ja' as const;
           <tr><th>種類</th><th>用途</th><th>提供元</th></tr>
         </thead>
         <tbody>
-          <tr><td>必須Cookie</td><td>サイトの基本動作（フォーム送信等）</td><td>当社</td></tr>
+          <tr><td>必須Cookie</td><td>サイトの基本動作</td><td>当社</td></tr>
           <tr><td>分析Cookie</td><td>アクセス状況の把握、改善</td><td>Google Analytics 4</td></tr>
         </tbody>
       </table>
@@ -40,8 +38,12 @@ const lang = 'ja' as const;
 
       <h2>第三者のプライバシーポリシー</h2>
       <ul>
-        <li><a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Google プライバシーポリシー</a></li>
+        <li>
+          <a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">
+            Google プライバシーポリシー
+          </a>
+        </li>
       </ul>
     </div>
-  </div>
+  </section>
 </Layout>

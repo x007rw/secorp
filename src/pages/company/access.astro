@@ -8,41 +8,41 @@ const lang = 'ja' as const;
   description="株式会社鈴木エンタープライズへのアクセス。神奈川県川崎市中原区木月、東急東横線・目黒線「元住吉」駅から徒歩1分。"
   lang={lang}
 >
-  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent text-sm font-semibold tracking-wider mb-2">ACCESS</p>
-      <h1 class="text-3xl md:text-5xl font-bold">アクセス</h1>
-    </div>
-  </div>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      アクセス
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Access</p>
 
-  <div class="max-w-4xl mx-auto px-4 py-16">
-    <div class="prose-jp">
-      <h2>本社所在地</h2>
-      <p>
-        〒211-0025<br />
-        神奈川県川崎市中原区木月2丁目2番34号 鈴木ビル3F<br />
-        TEL: 044-433-6399 / FAX: 044-434-8488
-      </p>
-
-      <h2>最寄り駅</h2>
-      <ul>
-        <li>東急東横線・目黒線「元住吉」駅 東口より徒歩約1分</li>
-        <li>JR南武線・東急東横線「武蔵小杉」駅 南口より徒歩約15分</li>
-      </ul>
-
-      <h2>地図</h2>
-      <div class="aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.2937856!2d139.6535894!3d35.5651616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185f86ceb0f7df%3A0x4c634a6c389d44ed!2z44CSMjExLTAwMjUg56We5aWI5bed55yM5bed5bSO5biC5Lit5Y6f5Yy65pyo5pyI77yS5LiB55uu77yS4oiS77yT77yU!5e0!3m2!1sja!2sjp!4v1700000000000"
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="鈴木エンタープライズ 所在地"
-        ></iframe>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="space-y-6 text-slate-700">
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Address</p>
+          <p class="text-base font-semibold text-slate-800">
+            〒211-0025<br />
+            神奈川県川崎市中原区木月2-2-34 鈴木ビル3F
+          </p>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Contact</p>
+          <p class="text-base">TEL: 044-433-6399 / FAX: 044-434-8488</p>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nearest Station</p>
+          <ul class="text-sm space-y-1">
+            <li>東急東横線・目黒線「元住吉」駅 東口より徒歩約1分</li>
+            <li>JR南武線・東急東横線「武蔵小杉」駅 南口より徒歩約15分</li>
+          </ul>
+        </div>
       </div>
+
+      <iframe
+        class="w-full h-80 rounded shadow-sm border border-slate-200"
+        src="https://maps.google.co.jp/maps?q=Japan,kanagawa,kawasaki,nakaharaku,kizuki%202-2-34&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="鈴木エンタープライズ 所在地"
+      ></iframe>
     </div>
-  </div>
+  </section>
 </Layout>
