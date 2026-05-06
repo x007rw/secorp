@@ -1,29 +1,32 @@
 # SUZUKI ENTERPRISE CO., LTD. (株式会社鈴木エンタープライズ)
 
 > 1967年創業、神奈川県川崎市中原区を拠点とする土木・建設資材の専門商社。
-> シールド工法用セグメント（鋼製・RC）、コンクリート補強材（バンドレックス®、POWER MESH）、
-> 防音・保温材、プラント設備資材、IoTセンサーまで幅広く取り扱う。
-> 韓国 POSCO の日本における代理店として実績多数。
+> シールド工法用セグメント（RC・鋼製）、コンクリート補強繊維（KOSTEEL社 BUNDREX® 日本総代理店）、
+> 土木・建築用型枠などを幅広く取り扱う。
+> 韓国 POSCO（浦項製鉄）の日本における独占代理店として供給実績多数。
 
 ## 基本情報
 - 会社名: 株式会社鈴木エンタープライズ / SUZUKI ENTERPRISE CO., LTD.
 - 法人番号: 3020001076051
 - 設立: 1967年7月
 - 資本金: 8,000万円
+- 代表者: 代表取締役 鈴木 裕哉
 - 所在地: 〒211-0025 神奈川県川崎市中原区木月2-2-34 鈴木ビル3F
 - 電話: 044-433-6399
+- メール: info@secorp.co.jp
 - ウェブ: https://www.secorp.co.jp/
 
 ## 主要キーワード
 - シールドセグメント / Shield Segment
-- 鋼製セグメント / Steel Segment
 - RCセグメント / RC Segment
+- 鋼製セグメント / Steel Segment（寸法精度 ±1mm）
+- 土木・建築用型枠 / Moulds（±0.5mm）
 - コンクリート補強材 / Concrete Reinforcement
 - スチールファイバー / Steel Fiber
+- バンドレックス / BUNDREX®（KOSTEEL社製・日本国内総代理店）
 - ポリプロピレン・ファイバー / PP Fiber
-- バンドレックス / BUNDREX
-- POWER MESH
-- POSCO 日本代理店
+- POSCO 日本独占代理店
+- SFRC 年間2,000MT
 - 鉄鋼商社 川崎
 
 ## 主要ページ
@@ -31,10 +34,11 @@
 - [経営理念](https://www.secorp.co.jp/company/philosophy/)
 - [沿革](https://www.secorp.co.jp/company/history/)
 - [製品一覧](https://www.secorp.co.jp/products/)
-- [シールドセグメント](https://www.secorp.co.jp/products/shield-segment/)
+- [RCセグメント](https://www.secorp.co.jp/products/shield-segment/rc/)
+- [鋼製セグメント](https://www.secorp.co.jp/products/shield-segment/steel/)
 - [コンクリート補強材](https://www.secorp.co.jp/products/concrete-reinforcement/)
-- [バンドレックス®](https://www.secorp.co.jp/products/concrete-reinforcement/bundrex/)
-- [POWER MESH](https://www.secorp.co.jp/products/concrete-reinforcement/power-mesh/)
+- [バンドレックス®（KOSTEEL社製スチール・ファイバー）](https://www.secorp.co.jp/products/concrete-reinforcement/bundrex/)
+- [ポリプロピレン・ファイバー](https://www.secorp.co.jp/products/concrete-reinforcement/pp-fiber/)
 - [お問い合わせ](https://www.secorp.co.jp/contact/)
 
 ## 主要納入実績
@@ -43,3 +47,10 @@
 - 首都高速道路公団 各種補強工事
 - NEXCO東日本 みちのく橋増強工事
 - 中部電力向け 連系管路新設工事
+
+## 沿革ハイライト
+- 1967: 設立
+- 1972〜: 韓国浦項製鉄(POSCO)鋼材の本邦独占代理店
+- 1996〜: RC・鋼製セグメントの海外調達・供給開始
+- 2008〜: SFRC 補強繊維 年間2,000MT 供給体制
+- 2023〜: 土木・建築用型枠の包括的海外製造体制

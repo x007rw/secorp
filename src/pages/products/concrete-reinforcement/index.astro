@@ -5,15 +5,26 @@ const lang = 'ja' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
 const items = [
-  { title: 'スチール・ファイバー（バンドレックス®）', en: 'Steel Fiber - BUNDREX®', href: '/products/concrete-reinforcement/bundrex/', desc: '韓国KOSTEEL社製 BUNDREX® の日本国内総代理店。鉄筋と同じ「構造的補強」として使用。SFRC年間2,000MT規模。' },
-  { title: 'ポリプロピレン・ファイバー', en: 'Polypropylene Fiber', href: '/products/concrete-reinforcement/pp-fiber/', desc: '非構造的補強（ひび割れ・剥離防止）に用いる高強度PP繊維。日本の大手ゼネコンに納入実績。' },
-  { title: 'POWER MESH', en: 'Power Mesh', href: '/products/concrete-reinforcement/power-mesh/', desc: '高引張強度（最大530MPa超）のメッシュ補強材。エンボス加工による優れたコンクリート付着性能。' },
+  {
+    title: 'スチール・ファイバー（バンドレックス®）',
+    en: 'Steel Fiber - BUNDREX®',
+    href: '/products/concrete-reinforcement/bundrex/',
+    desc: '韓国KOSTEEL社製 BUNDREX® の日本国内総代理店。鉄筋と同じ「構造的補強」として使用。SFRC年間2,000MT規模。',
+    img: '/images/products/steel-fiber.webp',
+  },
+  {
+    title: 'ポリプロピレン・ファイバー',
+    en: 'Polypropylene Fiber',
+    href: '/products/concrete-reinforcement/pp-fiber/',
+    desc: '非構造的補強（ひび割れ・剥離防止）に用いる高強度PP繊維。日本の大手ゼネコンに納入実績。',
+    img: '/images/products/pp-fiber.webp',
+  },
 ];
 ---
 
 <Layout
   title="コンクリート補強材"
-  description="コンクリート補強材の専門商社。KOSTEEL BUNDREX®日本総代理店。スチール・ファイバー、ポリプロピレン・ファイバー、POWER MESHを取扱い。"
+  description="コンクリート補強材の専門商社。KOSTEEL BUNDREX®日本総代理店。スチール・ファイバー、ポリプロピレン・ファイバーを取扱い。"
   lang={lang}
 >
   <section class="py-20 max-w-6xl mx-auto px-4">
@@ -28,15 +39,27 @@ const items = [
     </h1>
     <p class="text-sm text-slate-500 mb-10 ml-1">Concrete Reinforcement</p>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 gap-6">
       {items.map((item) => (
         <a
           href={p(item.href)}
-          class="group bg-white border border-slate-200 rounded p-6 hover:shadow-md hover:border-accent-400 transition-all"
+          class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all"
         >
-          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">{item.en}</p>
-          <h2 class="text-base font-bold text-brand-900 mb-2 group-hover:text-brand-600">{item.title}</h2>
-          <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+          <div class="aspect-video overflow-hidden bg-slate-100">
+            <img
+              src={item.img}
+              alt={item.title}
+              width="800"
+              height="450"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">{item.en}</p>
+            <h2 class="text-base font-bold text-brand-900 mb-2 group-hover:text-brand-600">{item.title}</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+          </div>
         </a>
       ))}
     </div>

@@ -10,43 +10,42 @@ const products = [
     en: 'RC Segment',
     desc: 'シールド工法で構築されるトンネルの鉄筋コンクリート製内壁パーツ。日本基準のセグメントを海外提携工場で監理生産します。',
     href: '/products/shield-segment/rc/',
+    img: '/images/products/shield-tunnel.webp',
   },
   {
     title: '鋼製セグメント',
     en: 'Steel Segment',
     desc: 'ガス導管・地下鉄・道路トンネル等に用いる鋼製の内壁セグメント。寸法精度 ±1mm 以内で量産対応。',
     href: '/products/shield-segment/steel/',
+    img: '/images/products/shield-tunnel.webp',
   },
   {
     title: '土木・建築用型枠',
     en: 'Moulds (Formwork)',
     desc: 'RCセグメント用型枠など、±0.5mm 以内の寸法精度を要求される高精度型枠。PC床板用型枠の海外製作にも対応。',
     href: '/products/mold/',
+    img: '/images/products/mould.webp',
   },
   {
     title: 'スチール・ファイバー',
     en: 'Steel Fiber',
     desc: '鉄筋と同じ「構造的補強」として用いる鋼繊維。韓国KOSTEEL社製 BUNDREX® の日本国内総代理店です。',
     href: '/products/concrete-reinforcement/bundrex/',
+    img: '/images/products/steel-fiber.webp',
   },
   {
     title: 'ポリプロピレン・ファイバー',
     en: 'Polypropylene Fiber',
     desc: 'コンクリートの非構造的補強(ひび割れ・剥離防止)に用いる高強度PP繊維。日本の大手ゼネコンに納入実績。',
     href: '/products/concrete-reinforcement/pp-fiber/',
-  },
-  {
-    title: 'POWER MESH',
-    en: 'Power Mesh',
-    desc: '高引張強度（最大530MPa超）のメッシュ補強材。エンボス加工による優れたコンクリート付着性能。',
-    href: '/products/concrete-reinforcement/power-mesh/',
+    img: '/images/products/pp-fiber.webp',
   },
 ];
 ---
 
 <Layout
   title="土木・建設資材"
-  description="鈴木エンタープライズの取扱製品一覧：RC/鋼製セグメント、土木建築用型枠、スチール・ファイバー（KOSTEEL BUNDREX®）、ポリプロピレン・ファイバー、POWER MESH。"
+  description="鈴木エンタープライズの取扱製品一覧：RC/鋼製セグメント、土木建築用型枠、スチール・ファイバー（KOSTEEL BUNDREX®）、ポリプロピレン・ファイバー。"
   lang={lang}
 >
   <section class="py-20 max-w-6xl mx-auto px-4">
@@ -61,10 +60,18 @@ const products = [
           href={p(product.href)}
           class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all"
         >
-          <div class="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-            <span class="text-slate-500 text-xs uppercase tracking-wider">{product.en}</span>
+          <div class="aspect-video overflow-hidden bg-slate-100">
+            <img
+              src={product.img}
+              alt={product.title}
+              width="800"
+              height="450"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
           <div class="p-5">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">{product.en}</p>
             <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">
               {product.title}
             </h3>
