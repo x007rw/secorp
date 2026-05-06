@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="鋼製セグメント"
+  description="シールド工法用の鋼製セグメント。中小口径から大口径まで対応。Steel Structure（鋼製構造）のトンネル内壁パーツとして高い実績。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <a href={p('/products/shield-segment/')} class="hover:text-white">シールドセグメント</a> /
+        <span>鋼製セグメント</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">STEEL SEGMENT</p>
+      <h1 class="text-3xl md:text-5xl font-bold">鋼製セグメント</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>鋼製セグメントとは</h2>
+      <p>
+        「鋼製セグメント（Steel Segment）」とは、シールド工法などで作られるトンネルの内壁パーツのうち、Steel Structure（鋼製構造）のものを言います。RC（鉄筋コンクリート）セグメントと比較して軽量で、加工難度の高い形状にも対応できる利点があります。
+      </p>
+
+      <h2>主な用途</h2>
+      <ul>
+        <li>中小口径の上下水道用トンネル</li>
+        <li>電力・通信用ケーブルトンネル</li>
+        <li>大口径道路トンネル（大口径鋼製セグメントにも対応）</li>
+        <li>異形セグメント（特殊形状）の製作</li>
+      </ul>
+
+      <h2>特長</h2>
+      <ul>
+        <li>軽量で施工性に優れる</li>
+        <li>複雑形状への加工対応力</li>
+        <li>高い品質管理（JIS規格適合品）</li>
+        <li>大口径対応の供給体制</li>
+      </ul>
+
+      <h2>お問い合わせ</h2>
+      <p>
+        プロジェクトの規模・仕様・納期に応じて最適な製品をご提案いたします。お気軽にお問い合わせください。
+      </p>
+      <p>
+        <a href={p('/contact/')} class="inline-block bg-brand text-white px-6 py-2 rounded-md no-underline hover:bg-accent">
+          お問い合わせフォーム →
+        </a>
+      </p>
+    </div>
+  </div>
+</Layout>

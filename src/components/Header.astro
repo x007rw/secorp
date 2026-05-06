@@ -1,0 +1,101 @@
+---
+import { useTranslations, getLocalizedPath, type Lang, languages } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = useTranslations(lang);
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const navItems = [
+  { label: t('nav.company'), href: p('/company/about/') },
+  { label: t('nav.products'), href: p('/products/') },
+  { label: t('nav.projects'), href: p('/projects/') },
+  { label: t('nav.news'), href: p('/news/') },
+  { label: t('nav.contact'), href: p('/contact/') },
+];
+
+const altLang: Lang = lang === 'ja' ? 'en' : 'ja';
+const stripped = currentPath.replace(/^\/(en|ja)\//, '/');
+const altPath = altLang === 'ja' ? stripped : `/en${stripped}`;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href={p('/')} class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-brand text-white rounded-md flex items-center justify-center font-bold text-lg">
+        SE
+      </div>
+      <div class="leading-tight">
+        <div class="font-bold text-brand text-base md:text-lg">
+          {t('site.name')}
+        </div>
+        <div class="text-xs text-gray-500 hidden md:block">
+          SUZUKI ENTERPRISE CO., LTD.
+        </div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-gray-700 hover:text-brand transition-colors font-medium"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="border-l border-gray-300 pl-6">
+        <a
+          href={altPath}
+          class="text-gray-600 hover:text-brand text-xs"
+          hreflang={altLang}
+        >
+          {languages[altLang]}
+        </a>
+      </div>
+    </nav>
+
+    <button
+      type="button"
+      class="md:hidden p-2"
+      aria-label="Toggle menu"
+      id="mobile-menu-toggle"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+    <ul class="px-4 py-2">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block py-3 text-gray-700 border-b border-gray-100"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href={altPath} class="block py-3 text-gray-500 text-sm" hreflang={altLang}>
+          {languages[altLang]}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

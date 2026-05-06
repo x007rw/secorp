@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const lang = 'ja' as const;
+
+const events = [
+  { year: '1967', month: '7月', body: '株式会社鈴木エンタープライズ設立' },
+  { year: '1972', month: '〜', body: '韓国 POSCO 社の日本における代理店として、韓国産鉄鋼資材の輸入販売を開始' },
+  { year: '1990s', month: '〜', body: 'シールド工法用 RCセグメント・鋼製セグメントの取扱開始。首都高速道路公団・横浜市営地下鉄等への納入を本格化' },
+  { year: '2000', month: '6月', body: 'コーポレートドメイン secorp.co.jp 取得' },
+  { year: '2010s', month: '〜', body: 'コンクリート補強材「バンドレックス®」「POWER MESH」の販売を強化。建設物価への登録' },
+  { year: '近年', month: '', body: 'IoT領域への展開（コンクリート構造物ひび割れ計測センサー等）' },
+];
+---
+
+<Layout
+  title="沿革"
+  description="株式会社鈴木エンタープライズの歩み。1967年創業からPOSCO日本代理店、シールドセグメント納入実績、IoT分野への展開まで。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">HISTORY</p>
+      <h1 class="text-3xl md:text-5xl font-bold">沿革</h1>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="space-y-6">
+      {events.map((event) => (
+        <div class="flex gap-6 border-l-2 border-brand pl-6 relative">
+          <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-brand"></div>
+          <div class="flex-shrink-0 w-32">
+            <div class="font-bold text-brand text-xl">{event.year}</div>
+            <div class="text-sm text-gray-500">{event.month}</div>
+          </div>
+          <div class="flex-1 pb-4">
+            <p class="text-gray-700 leading-relaxed">{event.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

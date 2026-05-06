@@ -1,0 +1,71 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="コンクリート補強材"
+  description="コンクリート補強材の専門商社。スチール・ファイバー、ポリプロピレン・ファイバー、バンドレックス®、POWER MESHなど。構造的補強・非構造的補強の両ニーズに対応。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <span>コンクリート補強材</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">CONCRETE REINFORCEMENT</p>
+      <h1 class="text-3xl md:text-5xl font-bold">コンクリート補強材</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>コンクリート補強材とは</h2>
+      <p>
+        コンクリート構造物の強度・耐久性を向上させるために使用される補強材です。鉄筋と同様の構造的補強材から、ひび割れ・剥離防止のための非構造的補強材まで、用途に応じて多様な選択肢があります。
+      </p>
+
+      <h2>取扱品種</h2>
+      <div class="grid md:grid-cols-2 gap-4 my-6">
+        <a href={p('/products/concrete-reinforcement/steel-fiber/')} class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block">
+          <h3 class="text-lg font-bold text-brand mb-2">スチール・ファイバー</h3>
+          <p class="text-sm text-gray-600">RCにおける構造的補強材として使用される鋼繊維。</p>
+        </a>
+
+        <a href={p('/products/concrete-reinforcement/pp-fiber/')} class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block">
+          <h3 class="text-lg font-bold text-brand mb-2">ポリプロピレン・ファイバー</h3>
+          <p class="text-sm text-gray-600">非構造的補強（ひび割れ防止、剥離防止）用の繊維材。</p>
+        </a>
+
+        <a href={p('/products/concrete-reinforcement/bundrex/')} class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block">
+          <h3 class="text-lg font-bold text-brand mb-2">バンドレックス®</h3>
+          <p class="text-sm text-gray-600">建設物価登録の繊維補強材。ダブルエンドフック型のスチールファイバー。</p>
+        </a>
+
+        <a href={p('/products/concrete-reinforcement/power-mesh/')} class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block">
+          <h3 class="text-lg font-bold text-brand mb-2">POWER MESH</h3>
+          <p class="text-sm text-gray-600">高引張強度のメッシュ材。エンボス加工による高い付着性能。</p>
+        </a>
+      </div>
+
+      <h2>用途別の選び方</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>用途</th>
+            <th>推奨製品</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>構造的補強（鉄筋代替）</td><td>スチール・ファイバー、バンドレックス®</td></tr>
+          <tr><td>ひび割れ・剥離防止</td><td>ポリプロピレン・ファイバー</td></tr>
+          <tr><td>表面補強・補修</td><td>POWER MESH</td></tr>
+          <tr><td>トンネルライニング補強</td><td>バンドレックス® + メッシュ併用</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Layout>

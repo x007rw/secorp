@@ -1,0 +1,58 @@
+---
+import { useTranslations, getLocalizedPath, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<footer class="bg-brand text-white mt-20">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="font-bold text-lg mb-3">{t('site.name')}</div>
+      <address class="not-italic text-sm leading-relaxed text-gray-200">
+        {t('footer.address')}<br />
+        {t('footer.tel')}<br />
+        {t('footer.fax')}
+      </address>
+    </div>
+
+    <div>
+      <div class="font-semibold mb-3 text-sm uppercase tracking-wider">
+        {t('nav.company')}
+      </div>
+      <ul class="space-y-2 text-sm text-gray-200">
+        <li><a href={p('/company/about/')} class="hover:text-white">{t('nav.about')}</a></li>
+        <li><a href={p('/company/philosophy/')} class="hover:text-white">{t('nav.philosophy')}</a></li>
+        <li><a href={p('/company/history/')} class="hover:text-white">{t('nav.history')}</a></li>
+        <li><a href={p('/company/access/')} class="hover:text-white">{t('nav.access')}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="font-semibold mb-3 text-sm uppercase tracking-wider">
+        {t('nav.products')}
+      </div>
+      <ul class="space-y-2 text-sm text-gray-200">
+        <li><a href={p('/products/shield-segment/')} class="hover:text-white">シールドセグメント</a></li>
+        <li><a href={p('/products/concrete-reinforcement/')} class="hover:text-white">コンクリート補強材</a></li>
+        <li><a href={p('/contact/')} class="hover:text-white">{t('cta.contact')}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-300">
+      <div>{t('footer.copyright')}</div>
+      <div class="flex gap-4">
+        <a href={p('/legal/privacy/')} class="hover:text-white">{t('footer.privacy')}</a>
+        <a href={p('/legal/cookies/')} class="hover:text-white">{t('footer.cookies')}</a>
+        <a href="/sitemap-index.xml" class="hover:text-white">{t('footer.sitemap')}</a>
+      </div>
+    </div>
+  </div>
+</footer>

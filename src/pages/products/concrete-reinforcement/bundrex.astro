@@ -1,0 +1,67 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="バンドレックス® (BUNDREX)"
+  description="繊維補強材バンドレックス®。韓国KOSTEEL社製、JIS3532適合、ダブルエンドフック型のスチールファイバー。建設物価登録の信頼性ある共通資材。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <a href={p('/products/concrete-reinforcement/')} class="hover:text-white">コンクリート補強材</a> /
+        <span>バンドレックス®</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">BUNDREX®</p>
+      <h1 class="text-3xl md:text-5xl font-bold">バンドレックス® (BUNDREX®)</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>製品概要</h2>
+      <p>
+        バンドレックス®は、コンクリート構造物の構造的補強に使用されるダブルエンドフック型のスチールファイバー（鋼繊維）です。建設物価に共通資材として登録されており、信頼性の高い補強材として広く採用されています。
+      </p>
+
+      <h2>仕様</h2>
+      <table>
+        <tbody>
+          <tr><th>製造メーカー</th><td>韓国 KOSTEEL CO., LTD.</td></tr>
+          <tr><th>材質</th><td>KOSTEEL社製 軟鋼線材</td></tr>
+          <tr><th>規格適合</th><td>JIS G3532 適合 / KS D3554（JIS G3505と等価）/ SWRM6</td></tr>
+          <tr><th>形状</th><td>ダブルエンドフック型／束（のり接着）</td></tr>
+          <tr><th>建設物価登録</th><td>あり（共通資材として登録）</td></tr>
+        </tbody>
+      </table>
+
+      <h2>主な用途</h2>
+      <ul>
+        <li>シールドトンネルライニングコンクリート</li>
+        <li>床版・舗装の構造補強</li>
+        <li>耐震補強</li>
+        <li>プレキャスト製品の補強</li>
+      </ul>
+
+      <h2>特長</h2>
+      <ul>
+        <li>ダブルエンドフック構造による高いコンクリートとの付着力</li>
+        <li>JIS適合品質による信頼性</li>
+        <li>建設物価登録による調達のしやすさ</li>
+        <li>KOSTEEL社の安定した供給体制</li>
+      </ul>
+
+      <h2>資料ダウンロード</h2>
+      <p>
+        <a href="/downloads/bundrex-spec.pdf" class="inline-block bg-brand text-white px-6 py-2 rounded-md no-underline hover:bg-accent">
+          → バンドレックス® 仕様書（PDF）
+        </a>
+      </p>
+    </div>
+  </div>
+</Layout>

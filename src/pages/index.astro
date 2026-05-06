@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations, getLocalizedPath } from '../i18n/ui';
+
+const lang = 'ja' as const;
+const t = useTranslations(lang);
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const products = [
+  {
+    title: 'シールドセグメント',
+    description: 'シールド工法用の鋼製セグメント・RCセグメント。大口径鋼製セグメントにも対応。首都高速道路、横浜市営地下鉄、シンガポールMRT等の納入実績。',
+    href: '/products/shield-segment/',
+    icon: '🚇',
+  },
+  {
+    title: 'コンクリート補強材',
+    description: 'スチール・ファイバー、ポリプロピレン・ファイバー、バンドレックス®、POWER MESHなど。構造的補強から非構造的補強まで幅広く対応。',
+    href: '/products/concrete-reinforcement/',
+    icon: '🏗️',
+  },
+  {
+    title: '防音・保温材',
+    description: 'ポリカーボネート板、JIS取得品のグラスウールを取り扱い。建設・プラント分野での豊富な実績。',
+    href: '/products/insulation/',
+    icon: '🔇',
+  },
+  {
+    title: 'プラント設備資材',
+    description: 'プラント用圧力容器、環境保全機器、フィンチューブ。エンジニアリング企業様向けの安定供給体制。',
+    href: '/products/plant-equipment/',
+    icon: '⚙️',
+  },
+];
+
+const pillars = [
+  {
+    title: '57年の歴史',
+    body: '1967年創業以来、半世紀以上にわたり東アジアを中心に鉄鋼・土木建築資材の品質向上とコスト削減に努めてまいりました。',
+  },
+  {
+    title: 'POSCO代理店としての信頼',
+    body: '韓国最大手の鉄鋼メーカー POSCO の日本における代理店として、高品質・安定供給を実現しています。',
+  },
+  {
+    title: 'グローバルな調達力',
+    body: '東アジア各国に独自のネットワークを構築。国内外の優良メーカーから最適な資材を調達します。',
+  },
+];
+---
+
+<Layout title="株式会社鈴木エンタープライズ" lang={lang}>
+  <section class="bg-gradient-to-br from-brand to-brand-light text-white">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-32">
+      <div class="max-w-3xl">
+        <p class="text-accent font-semibold tracking-wider mb-4 text-sm md:text-base">
+          SHIELD SEGMENT × CONCRETE REINFORCEMENT
+        </p>
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          土木・建設資材の<br />
+          専門商社として、<br />
+          日本のインフラを支える。
+        </h1>
+        <p class="text-lg md:text-xl text-gray-100 leading-relaxed mb-8">
+          1967年創業、株式会社鈴木エンタープライズ。<br class="hidden md:block" />
+          シールド工法用セグメント、コンクリート補強材、<br class="hidden md:block" />
+          プラント設備資材まで幅広く取り扱う、<br class="hidden md:block" />
+          川崎発の鉄鋼・建材専門商社です。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={p('/products/')}
+            class="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+          >
+            製品を見る →
+          </a>
+          <a
+            href={p('/contact/')}
+            class="inline-flex items-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-brand transition-colors"
+          >
+            お問い合わせ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand mb-3">
+          製品・サービス
+        </h2>
+        <p class="text-gray-600">
+          土木・建設・プラント分野の資材を幅広く取り扱っております
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {products.map((product) => (
+          <a
+            href={p(product.href)}
+            class="group bg-white rounded-lg p-6 md:p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100"
+          >
+            <div class="text-4xl mb-3">{product.icon}</div>
+            <h3 class="text-xl font-bold text-brand mb-3 group-hover:text-accent transition-colors">
+              {product.title}
+            </h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
+              {product.description}
+            </p>
+            <div class="mt-4 text-accent text-sm font-semibold">
+              詳しく見る →
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand mb-3">
+          私たちの強み
+        </h2>
+        <p class="text-gray-600">
+          半世紀以上にわたり培ってきた信頼とネットワーク
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {pillars.map((pillar, i) => (
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-brand text-white rounded-full flex items-center justify-center text-xl font-bold">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <h3 class="text-lg font-bold text-brand mb-3">
+              {pillar.title}
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              {pillar.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        資材調達のご相談はお気軽に
+      </h2>
+      <p class="text-gray-200 mb-8">
+        シールドセグメント、コンクリート補強材、プラント設備資材など<br />
+        貴社プロジェクトに最適なソリューションをご提案いたします。
+      </p>
+      <a
+        href={p('/contact/')}
+        class="inline-flex items-center gap-2 bg-white text-brand px-8 py-4 rounded-md font-bold text-lg hover:bg-gray-100 transition-colors"
+      >
+        お問い合わせフォームへ →
+      </a>
+    </div>
+  </section>
+</Layout>

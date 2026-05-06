@@ -1,0 +1,55 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'en' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const categories = [
+  {
+    title: 'Shield Segments',
+    href: '/products/shield-segment/',
+    description: 'Tunnel lining segments for shield-method construction. Both steel and RC types available.',
+    items: ['Steel Segments', 'RC Segments', 'Large-diameter Steel Segments'],
+  },
+  {
+    title: 'Concrete Reinforcement',
+    href: '/products/concrete-reinforcement/',
+    description: 'Various fiber and mesh reinforcement materials for structural and non-structural applications.',
+    items: ['Steel Fiber', 'PP Fiber', 'BUNDREX®', 'POWER MESH'],
+  },
+  {
+    title: 'Insulation Materials',
+    href: '/products/insulation/',
+    description: 'Sound and thermal insulation materials for construction and plant industries.',
+    items: ['Polycarbonate sheets', 'Glass wool (JIS-certified)'],
+  },
+];
+---
+
+<Layout
+  title="Products & Services"
+  description="Product lineup of SUZUKI ENTERPRISE: shield segments, concrete reinforcement, insulation, plant equipment, and IoT solutions."
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PRODUCTS</p>
+      <h1 class="text-3xl md:text-5xl font-bold">Products & Services</h1>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map((cat) => (
+        <a href={p(cat.href)} class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all">
+          <h2 class="text-xl font-bold text-brand mb-3 group-hover:text-accent">{cat.title}</h2>
+          <p class="text-sm text-gray-600 mb-4">{cat.description}</p>
+          <ul class="text-xs text-gray-500 space-y-1">
+            {cat.items.map((item) => <li>・{item}</li>)}
+          </ul>
+          <div class="mt-4 text-accent text-sm font-semibold">Learn more →</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

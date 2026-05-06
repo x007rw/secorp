@@ -1,0 +1,71 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="シールドセグメント"
+  description="シールド工法用セグメント（鋼製・RC）の専門商社。大口径鋼製セグメントにも対応。首都高速道路・地下鉄・海外プロジェクトで多数の納入実績。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <span>シールドセグメント</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">SHIELD SEGMENT</p>
+      <h1 class="text-3xl md:text-5xl font-bold">シールドセグメント</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>セグメントとは</h2>
+      <p>
+        セグメントとは、シールド工法によって構築されるトンネルの内壁を構成するパーツです。地下鉄・上下水道・電力・通信用トンネル、道路トンネルなど、都市インフラの建設に不可欠な部材です。
+      </p>
+
+      <h2>取扱品種</h2>
+
+      <div class="grid md:grid-cols-2 gap-4 my-6">
+        <a
+          href={p('/products/shield-segment/steel/')}
+          class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block"
+        >
+          <h3 class="text-lg font-bold text-brand mb-2">鋼製セグメント</h3>
+          <p class="text-sm text-gray-600">
+            軽量で加工難度の高い形状にも対応。中小口径から大口径までフルラインナップ。
+          </p>
+        </a>
+
+        <a
+          href={p('/products/shield-segment/rc/')}
+          class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all block"
+        >
+          <h3 class="text-lg font-bold text-brand mb-2">RCセグメント</h3>
+          <p class="text-sm text-gray-600">
+            鉄筋コンクリート構造で耐圧縮性・耐久性に優れる。長期使用インフラに最適。
+          </p>
+        </a>
+      </div>
+
+      <h2>主要納入実績</h2>
+      <ul>
+        <li>横浜市営地下鉄 4号線 白楽工区</li>
+        <li>シンガポール地下鉄 C-823 工区</li>
+        <li>首都高速道路公団 各種補強工事</li>
+        <li>NEXCO東日本 みちのく橋増強工事</li>
+        <li>中部電力向け 連系管路新設工事</li>
+      </ul>
+
+      <p class="mt-8">
+        <a href="/downloads/rc-segment-results.pdf" class="text-accent font-semibold">
+          → RCセグメント実績表（PDF）をダウンロード
+        </a>
+      </p>
+    </div>
+  </div>
+</Layout>

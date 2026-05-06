@@ -1,0 +1,49 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="ポリプロピレン・ファイバー"
+  description="コンクリートのひび割れ防止・剥離防止に効果的なポリプロピレン・ファイバー（PP Fiber）。非構造的補強の主力製品。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <a href={p('/products/concrete-reinforcement/')} class="hover:text-white">コンクリート補強材</a> /
+        <span>ポリプロピレン・ファイバー</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PP FIBER</p>
+      <h1 class="text-3xl md:text-5xl font-bold">ポリプロピレン・ファイバー</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>ポリプロピレン・ファイバーとは</h2>
+      <p>
+        ポリプロピレン・ファイバー（PP Fiber）とは、コンクリートに混ぜて使用する「非構造的補強（Non-Structured Reinforcement）」用の繊維補強材です。主にひび割れ防止・剥離防止を目的として使用されます。
+      </p>
+
+      <h2>主な効果</h2>
+      <ul>
+        <li>コンクリート初期硬化時のひび割れ防止</li>
+        <li>表面剥離（爆裂）防止</li>
+        <li>耐衝撃性の向上</li>
+        <li>耐火性能の改善（爆裂対策）</li>
+      </ul>
+
+      <h2>主な用途</h2>
+      <ul>
+        <li>トンネルライニングコンクリート</li>
+        <li>床版・舗装</li>
+        <li>プレキャスト製品</li>
+        <li>耐火構造物</li>
+      </ul>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const lang = 'ja' as const;
+---
+
+<Layout
+  title="経営理念"
+  description="株式会社鈴木エンタープライズの経営理念。世界から優れた資材を調達し、日本の社会基盤づくりに貢献するという創業以来の使命について。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PHILOSOPHY</p>
+      <h1 class="text-3xl md:text-5xl font-bold">経営理念</h1>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>ご挨拶</h2>
+      <p>
+        私共、株式会社鈴木エンタープライズは半世紀以上にわたり、東アジアを中心に鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。
+      </p>
+      <p>
+        これからも、世界各国から高品質・低コストの土木建設資材を調達し、日本の社会基盤づくりに貢献してまいります。
+      </p>
+
+      <h2>私たちの使命</h2>
+      <p>
+        日本のインフラを支える「縁の下の力持ち」として、お客様にとって最適な資材を、最適なタイミングで、最適なコストでお届けすること。それが私たちの使命です。
+      </p>
+
+      <h2>三つの価値</h2>
+      <h3>1. 品質</h3>
+      <p>
+        JIS規格・KS規格に準拠した高品質な資材のみを取り扱い、納入後の安心までを提供します。
+      </p>
+
+      <h3>2. コスト</h3>
+      <p>
+        グローバルな調達ネットワークを活かし、お客様のプロジェクトコスト削減に貢献します。
+      </p>
+
+      <h3>3. 信頼</h3>
+      <p>
+        1967年の創業以来、長期にわたるお客様との信頼関係を最も大切な経営資源と考えています。
+      </p>
+    </div>
+  </div>
+</Layout>

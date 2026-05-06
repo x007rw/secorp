@@ -1,0 +1,61 @@
+# Cloudflare Pages リダイレクト設定
+# 旧 secorp.work URL → 新 secorp.co.jp URL
+# Astro の trailingSlash: 'always' に合わせる
+
+# === 日本語ページの旧URL → 新URL ===
+
+# 会社情報
+/会社概要-overviews/                                                      /company/about/                              301
+/創業の理念/                                                              /company/philosophy/                         301
+
+# 製品（旧階層）
+/土木・建設資材civil-engineering-construction-product/                    /products/                                   301
+/土木・建設資材civil-engineering-construction-product/鋼製セグメントsteel-segment/   /products/shield-segment/steel/    301
+/土木・建設資材civil-engineering-construction-product/rcセグメントrc-segment/        /products/shield-segment/rc/       301
+/土木・建設資材civil-engineering-construction-product/スチール・ファイバーsteel-fiber/  /products/concrete-reinforcement/steel-fiber/  301
+/土木・建設資材civil-engineering-construction-product/プラスチック・ファイバーplastic-fiber/  /products/concrete-reinforcement/pp-fiber/  301
+/土木・建設資材civil-engineering-construction-product/rc型枠rc-flame/                /products/mold/                    301
+/鋼製セグメントsteel-segment/                                             /products/shield-segment/steel/              301
+/rcセグメントrc-segment/                                                  /products/shield-segment/rc/                 301
+
+# 新製品・IoT
+/新製品next-generation-product/                                           /products/iot/                               301
+/iot-internet-of-things/コンクリート構築物ひび割れ計測crack-sensor-for-concretes/  /products/iot/crack-sensor/   301
+
+# その他
+/W会のページ/                                                             /company/w-association/                      301
+/contact/                                                                 /contact/                                    301
+
+# 旧PDF直リンク（パターンマッチ）
+/wp-content/uploads/*バンドレックス*.pdf                                   /downloads/bundrex-spec.pdf                  301
+/wp-content/uploads/*Bundrex*.pdf                                          /downloads/bundrex-spec.pdf                  301
+/wp-content/uploads/*BUNDREX*.pdf                                          /downloads/bundrex-spec.pdf                  301
+/wp-content/uploads/*POWER*.pdf                                            /downloads/power-mesh-spec.pdf               301
+/wp-content/uploads/*HPSF*.pdf                                             /downloads/track-record-domestic.pdf         301
+
+# === 英語ページの旧URL → 新URL ===
+/en/                                                                       /en/                                         301
+/en/overviews/                                                             /en/company/about/                           301
+/en/our-consept/                                                           /en/company/philosophy/                      301
+/en/civil-engineering-construction-product/                                /en/products/                                301
+/en/civil-engineering-construction-product/steel-segment/                  /en/products/shield-segment/steel/           301
+/en/civil-engineering-construction-product/rc-segment/                     /en/products/shield-segment/rc/              301
+/en/civil-engineering-construction-product/polypropylene-fiber-pp-fiber-plasticfiber/  /en/products/concrete-reinforcement/pp-fiber/  301
+/en/civil-engineering-construction-product/mold-for-civil-engineering-construction-structure/  /en/products/mold/  301
+/en/contact-us/                                                            /en/contact/                                 301
+
+# === WordPress 旧URL（クエリパラメータ）→ 新URL ===
+/wordpress/                                                                /                                            301
+/?page_id=22                                                               /company/about/                              301
+/?page_id=60                                                               /company/philosophy/                         301
+/?page_id=16                                                               /products/shield-segment/steel/              301
+/?page_id=18                                                               /products/shield-segment/rc/                 301
+/?page_id=89                                                               /products/iot/crack-sensor/                  301
+
+# === ドメイン正規化 ===
+# 旧ドメイン secorp.work からのアクセスは Cloudflare DNS 設定で .co.jp 側にプロキシし、
+# このサイトに着地後、上記のパスマッチで該当ページへ。
+
+# === フォールバック ===
+# 全てのその他のリクエストはトップへ
+/*                                                                         /                                            301

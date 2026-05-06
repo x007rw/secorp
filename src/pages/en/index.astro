@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../i18n/ui';
+const lang = 'en' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const products = [
+  {
+    title: 'Shield Segments',
+    description: 'Steel and RC segments for shield-method tunnels. Track record with metropolitan expressways, urban subways and Singapore MRT.',
+    href: '/products/shield-segment/',
+  },
+  {
+    title: 'Concrete Reinforcement',
+    description: 'Steel fiber, PP fiber, BUNDREX®, and POWER MESH. Solutions for both structural and non-structural reinforcement.',
+    href: '/products/concrete-reinforcement/',
+  },
+  {
+    title: 'Insulation Materials',
+    description: 'Polycarbonate sheets and JIS-certified glass wool for construction and plant applications.',
+    href: '/products/insulation/',
+  },
+  {
+    title: 'Plant Equipment',
+    description: 'Pressure vessels, environmental conservation equipment, and finned tubes for engineering firms.',
+    href: '/products/plant-equipment/',
+  },
+];
+---
+
+<Layout title="SUZUKI ENTERPRISE CO., LTD." lang={lang}>
+  <section class="bg-gradient-to-br from-brand to-brand-light text-white">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-32">
+      <div class="max-w-3xl">
+        <p class="text-accent font-semibold tracking-wider mb-4 text-sm md:text-base">
+          SHIELD SEGMENT × CONCRETE REINFORCEMENT
+        </p>
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Trading Specialist of<br />
+          Civil Engineering &<br />
+          Construction Materials
+        </h1>
+        <p class="text-lg md:text-xl text-gray-100 leading-relaxed mb-8">
+          Founded in 1967, SUZUKI ENTERPRISE CO., LTD. supplies shield segments,
+          concrete reinforcement materials, and plant equipment to support
+          Japan's infrastructure—based in Kawasaki, Japan.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={p('/products/')} class="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
+            View Products →
+          </a>
+          <a href={p('/contact/')} class="inline-flex items-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-brand transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand mb-3">
+          Products & Services
+        </h2>
+        <p class="text-gray-600">
+          A wide range of materials for civil engineering, construction, and plant projects
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {products.map((product) => (
+          <a href={p(product.href)} class="group bg-white rounded-lg p-6 md:p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100">
+            <h3 class="text-xl font-bold text-brand mb-3 group-hover:text-accent transition-colors">
+              {product.title}
+            </h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
+              {product.description}
+            </p>
+            <div class="mt-4 text-accent text-sm font-semibold">Learn more →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

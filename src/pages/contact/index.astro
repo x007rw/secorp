@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const lang = 'ja' as const;
+---
+
+<Layout
+  title="お問い合わせ"
+  description="株式会社鈴木エンタープライズへのお問い合わせ。シールドセグメント、コンクリート補強材、プラント設備資材のご相談をお気軽にどうぞ。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">CONTACT</p>
+      <h1 class="text-3xl md:text-5xl font-bold">お問い合わせ</h1>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="prose-jp mb-10">
+      <p>
+        資材調達のご相談、製品仕様のお問い合わせ、お見積り依頼など、お気軽にご連絡ください。担当者より2営業日以内にご返信いたします。
+      </p>
+
+      <h2>お電話でのお問い合わせ</h2>
+      <div class="bg-gray-50 p-6 rounded-lg my-4 not-prose">
+        <p class="text-2xl font-bold text-brand">
+          <a href="tel:0444336399">044-433-6399</a>
+        </p>
+        <p class="text-sm text-gray-600 mt-1">受付時間 平日 9:00〜17:30（土日祝休）</p>
+        <p class="text-sm text-gray-600">FAX: 044-434-8488</p>
+      </div>
+    </div>
+
+    <form
+      class="bg-white border border-gray-200 rounded-lg p-6 md:p-8 space-y-5"
+      action="https://formspree.io/f/REPLACE_ME"
+      method="POST"
+    >
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">
+          お問い合わせ種別 <span class="text-red-500">*</span>
+        </label>
+        <select name="inquiry_type" required class="w-full border border-gray-300 rounded-md px-3 py-2">
+          <option value="">選択してください</option>
+          <option value="product">製品に関するお問い合わせ</option>
+          <option value="quote">見積依頼</option>
+          <option value="partnership">取引のご相談</option>
+          <option value="recruitment">採用について</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">
+            会社名 <span class="text-red-500">*</span>
+          </label>
+          <input type="text" name="company" required class="w-full border border-gray-300 rounded-md px-3 py-2" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">
+            部署・役職
+          </label>
+          <input type="text" name="department" class="w-full border border-gray-300 rounded-md px-3 py-2" />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">
+          ご担当者名 <span class="text-red-500">*</span>
+        </label>
+        <input type="text" name="name" required class="w-full border border-gray-300 rounded-md px-3 py-2" />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">
+            メールアドレス <span class="text-red-500">*</span>
+          </label>
+          <input type="email" name="email" required class="w-full border border-gray-300 rounded-md px-3 py-2" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">
+            電話番号
+          </label>
+          <input type="tel" name="tel" class="w-full border border-gray-300 rounded-md px-3 py-2" />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">
+          お問い合わせ内容 <span class="text-red-500">*</span>
+        </label>
+        <textarea name="message" required rows="6" class="w-full border border-gray-300 rounded-md px-3 py-2"></textarea>
+      </div>
+
+      <div>
+        <label class="flex items-start gap-2 text-sm">
+          <input type="checkbox" required class="mt-1" />
+          <span>
+            <a href="/legal/privacy/" class="text-accent underline">プライバシーポリシー</a>に同意の上、送信します。<span class="text-red-500">*</span>
+          </span>
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full md:w-auto px-8 py-3 bg-brand text-white font-semibold rounded-md hover:bg-accent transition-colors"
+      >
+        送信する →
+      </button>
+    </form>
+  </div>
+</Layout>

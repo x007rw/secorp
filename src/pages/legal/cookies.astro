@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const lang = 'ja' as const;
+---
+
+<Layout
+  title="Cookie ポリシー"
+  description="株式会社鈴木エンタープライズのCookie ポリシー。本サイトでのCookie 使用について。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">COOKIE POLICY</p>
+      <h1 class="text-3xl md:text-5xl font-bold">Cookie ポリシー</h1>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>Cookie とは</h2>
+      <p>
+        Cookie とは、ウェブサイトを訪問した際にブラウザに保存される小さなテキストファイルです。サイトの利便性向上やアクセス解析に用いられます。
+      </p>
+
+      <h2>当社サイトで使用するCookie</h2>
+      <table>
+        <thead>
+          <tr><th>種類</th><th>用途</th><th>提供元</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>必須Cookie</td><td>サイトの基本動作（フォーム送信等）</td><td>当社</td></tr>
+          <tr><td>分析Cookie</td><td>アクセス状況の把握、改善</td><td>Google Analytics 4</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Cookie の管理</h2>
+      <p>
+        ブラウザの設定からCookieの受け入れ可否や削除を行うことができます。Cookieを無効にすると、当サイトの一部機能が正常に動作しない場合があります。
+      </p>
+
+      <h2>第三者のプライバシーポリシー</h2>
+      <ul>
+        <li><a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Google プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+</Layout>

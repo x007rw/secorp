@@ -1,0 +1,123 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, type Lang, defaultLang } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  lang = defaultLang,
+  ogImage = '/images/ogp.png',
+  noindex = false,
+} = Astro.props;
+
+const t = useTranslations(lang);
+const siteName = t('site.name');
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const desc = description ?? t('site.description');
+
+const SITE = 'https://www.secorp.co.jp';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = SITE + currentPath;
+
+// hreflang alternates
+const stripped = currentPath.replace(/^\/en\//, '/');
+const jaUrl = SITE + stripped;
+const enUrl = SITE + `/en${stripped}`.replace('//', '/');
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : SITE + ogImage;
+
+// Schema.org Organization
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.secorp.co.jp/#organization',
+  name: '株式会社鈴木エンタープライズ',
+  alternateName: 'SUZUKI ENTERPRISE CO., LTD.',
+  url: 'https://www.secorp.co.jp/',
+  logo: 'https://www.secorp.co.jp/images/logo.png',
+  foundingDate: '1967-07',
+  description: t('site.description'),
+  knowsAbout: [
+    'シールドセグメント',
+    '鋼製セグメント',
+    'RCセグメント',
+    'コンクリート補強材',
+    'スチールファイバー',
+    'バンドレックス',
+    'POWER MESH',
+    'シールド工法',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '木月２丁目２番３４号 鈴木ビル3F',
+    addressLocality: '川崎市中原区',
+    addressRegion: '神奈川県',
+    postalCode: '211-0025',
+    addressCountry: 'JP',
+  },
+  telephone: '+81-44-433-6399',
+  faxNumber: '+81-44-434-8488',
+  sameAs: [
+    'https://www.nikkei.com/compass/company/fxGxtddDjKQF8h8X6eb5Gw',
+    'https://info.gbiz.go.jp/hojin/ichiran?hojinBango=3020001076051',
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="ja" href={jaUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={jaUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header lang={lang} currentPath={currentPath} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

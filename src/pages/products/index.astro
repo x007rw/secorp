@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const categories = [
+  {
+    title: 'シールドセグメント',
+    href: '/products/shield-segment/',
+    description: 'シールド工法用のトンネル内壁パーツ。鋼製・RC（鉄筋コンクリート）両方を取扱い。',
+    items: ['鋼製セグメント', 'RCセグメント', '大口径鋼製セグメント'],
+  },
+  {
+    title: 'コンクリート補強材',
+    href: '/products/concrete-reinforcement/',
+    description: '構造的補強・非構造的補強の各種繊維補強材、メッシュ材を取扱い。',
+    items: ['スチール・ファイバー', 'ポリプロピレン・ファイバー', 'バンドレックス®', 'POWER MESH'],
+  },
+  {
+    title: '防音・保温材',
+    href: '/products/insulation/',
+    description: '建築・プラント分野の遮音・保温資材。',
+    items: ['ポリカーボネート板', 'グラスウール（JIS取得）'],
+  },
+  {
+    title: '土木・建築用型枠',
+    href: '/products/mold/',
+    description: 'PC（プレキャスト）製造用の高耐久型枠。',
+    items: ['RCセグメント用型枠'],
+  },
+  {
+    title: 'プラント設備資材',
+    href: '/products/plant-equipment/',
+    description: '化学・電力プラント向けの専門資材。',
+    items: ['圧力容器', '環境保全機器', 'フィンチューブ'],
+  },
+  {
+    title: 'IoTソリューション',
+    href: '/products/iot/',
+    description: 'インフラ構造物のモニタリング技術。',
+    items: ['コンクリート構造物ひび割れ計測センサー'],
+  },
+];
+---
+
+<Layout
+  title="製品・サービス"
+  description="鈴木エンタープライズの取扱製品一覧。シールドセグメント、コンクリート補強材、防音・保温材、プラント設備資材、IoTソリューションまで幅広くラインナップ。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">PRODUCTS</p>
+      <h1 class="text-3xl md:text-5xl font-bold">製品・サービス</h1>
+      <p class="mt-4 text-gray-100 max-w-2xl">
+        土木・建設・プラント分野で使用される各種資材を、世界中から調達してお届けします。
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map((cat) => (
+        <a
+          href={p(cat.href)}
+          class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-brand transition-all"
+        >
+          <h2 class="text-xl font-bold text-brand mb-3 group-hover:text-accent">
+            {cat.title}
+          </h2>
+          <p class="text-sm text-gray-600 mb-4">{cat.description}</p>
+          <ul class="text-xs text-gray-500 space-y-1">
+            {cat.items.map((item) => (
+              <li>・{item}</li>
+            ))}
+          </ul>
+          <div class="mt-4 text-accent text-sm font-semibold">
+            詳しく見る →
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

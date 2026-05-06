@@ -1,0 +1,62 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="RCセグメント"
+  description="シールド工法用のRC（鉄筋コンクリート）セグメント。耐圧縮性・耐久性に優れ、長期使用のインフラトンネルに最適。横浜・シンガポール等の納入実績。"
+  lang={lang}
+>
+  <div class="bg-gradient-to-br from-brand to-brand-light text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-gray-300 mb-4">
+        <a href={p('/products/')} class="hover:text-white">製品一覧</a> /
+        <a href={p('/products/shield-segment/')} class="hover:text-white">シールドセグメント</a> /
+        <span>RCセグメント</span>
+      </nav>
+      <p class="text-accent text-sm font-semibold tracking-wider mb-2">RC SEGMENT</p>
+      <h1 class="text-3xl md:text-5xl font-bold">RCセグメント</h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="prose-jp">
+      <h2>RCセグメントとは</h2>
+      <p>
+        「RCセグメント（RC Segment）」とは、シールド工法などで作られるトンネルの内壁パーツのうち、RC（Reinforced Concrete／鉄筋コンクリート構造）のものを言います。耐圧縮性・耐久性に優れ、長期使用のインフラトンネルに広く採用されています。
+      </p>
+
+      <h2>主な用途</h2>
+      <ul>
+        <li>地下鉄トンネル</li>
+        <li>大規模上下水道トンネル</li>
+        <li>大深度地下トンネル</li>
+        <li>共同溝</li>
+      </ul>
+
+      <h2>特長</h2>
+      <ul>
+        <li>高い耐圧縮性能</li>
+        <li>長期耐久性（インフラ長寿命化に貢献）</li>
+        <li>コスト効率に優れる</li>
+        <li>標準セグメントから特殊形状まで対応</li>
+      </ul>
+
+      <h2>主要納入実績</h2>
+      <ul>
+        <li>横浜市営地下鉄 4号線 白楽工区</li>
+        <li>シンガポール地下鉄 C-823 工区</li>
+        <li>その他、国内外の地下インフラプロジェクト多数</li>
+      </ul>
+
+      <p class="mt-6">
+        <a href="/downloads/rc-segment-results.pdf" class="text-accent font-semibold">
+          → RCセグメント実績表（PDF）をダウンロード
+        </a>
+      </p>
+    </div>
+  </div>
+</Layout>
