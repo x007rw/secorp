@@ -24,7 +24,6 @@
 
 # その他
 /W会のページ/                                                             /company/w-association/                      301
-/contact/                                                                 /contact/                                    301
 
 # 旧PDF直リンク（パターンマッチ）
 /wp-content/uploads/*バンドレックス*.pdf                                   /downloads/bundrex-spec.pdf                  301
@@ -33,7 +32,6 @@
 /wp-content/uploads/*HPSF*.pdf                                             /downloads/track-record-domestic.pdf         301
 
 # === 英語ページの旧URL → 新URL ===
-/en/                                                                       /en/                                         301
 /en/overviews/                                                             /en/company/about/                           301
 /en/our-consept/                                                           /en/company/philosophy/                      301
 /en/civil-engineering-construction-product/                                /en/products/                                301
@@ -56,5 +54,4 @@
 # このサイトに着地後、上記のパスマッチで該当ページへ。
 
 # === フォールバック ===
-# 全てのその他のリクエストはトップへ
-/*                                                                         /                                            301
+# 該当しない URL は Astro の 404 ページに任せる（catch-all は無限ループや SEO 問題を招くため設定しない）
