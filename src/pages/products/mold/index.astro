@@ -1,0 +1,78 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+const lang = 'ja' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="土木・建築用型枠"
+  description="RCセグメント用型枠を中心とした高精度型枠。±0.5mm以内の寸法精度で量産対応。PC床板用型枠の海外製作にも対応します。"
+  lang={lang}
+>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">土木・建設資材</a>
+      <span class="mx-2">/</span>
+      <span>土木・建築用型枠</span>
+    </nav>
+
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      土木・建築用型枠
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">Moulds (Formwork)</p>
+
+    <img
+      src="/images/products/mould.webp"
+      alt="提携工場で並ぶRCセグメント用型枠"
+      width="1200"
+      height="675"
+      loading="lazy"
+      class="w-full h-auto rounded mb-10"
+    />
+
+    <div class="prose-jp">
+      <h2>製品概要</h2>
+      <p>
+        型枠とは、RC（鉄筋コンクリート）セグメント型枠のように、PC（プレキャスト）製品を工場で生産するための型です。当社では、シールド工法用RCセグメント型枠を中心に、PC床板用型枠など各種の高精度型枠を取り扱っています。
+      </p>
+      <p>
+        提携工場における監理体制のもと、<strong>±0.5mm以内の高い寸法精度</strong>を維持しながら量産対応を実現。日本基準の品質を維持しつつ、海外調達によるコスト競争力をご提供します。
+      </p>
+
+      <h2>主な製品</h2>
+      <ul>
+        <li>RCセグメント用型枠（シールド工法用）</li>
+        <li>PC床板用型枠（高速道路補修用ほか）</li>
+        <li>その他カスタム型枠（仕様に応じて対応）</li>
+      </ul>
+
+      <h2>仕様</h2>
+      <table>
+        <tbody>
+          <tr><th>寸法精度</th><td>±0.5mm 以内</td></tr>
+          <tr><th>主用途</th><td>RCセグメント、PC床板、その他PC製品の量産</td></tr>
+          <tr><th>製造体制</th><td>当社製造監理チームによる海外提携工場での監理生産</td></tr>
+          <tr><th>耐久性</th><td>長期反復使用に耐える設計</td></tr>
+        </tbody>
+      </table>
+
+      <h2>特長</h2>
+      <ul>
+        <li>業界トップクラスの寸法精度（±0.5mm）</li>
+        <li>耐久性と高精度の両立</li>
+        <li>大型・特殊形状にも対応</li>
+        <li>量産時の品質ばらつきを最小化</li>
+      </ul>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href={p('/contact/')}
+        class="bg-brand-900 text-white font-semibold px-5 py-3 rounded hover:bg-brand-700 transition-colors"
+      >
+        お問い合わせ →
+      </a>
+    </div>
+  </section>
+</Layout>

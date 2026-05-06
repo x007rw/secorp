@@ -1,0 +1,78 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../../i18n/ui';
+const lang = 'en' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+---
+
+<Layout
+  title="Moulds (Formwork)"
+  description="High-precision moulds including RC-segment moulds and PC slab moulds. ±0.5 mm dimensional tolerance for mass production at overseas partner plants."
+  lang={lang}
+>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">Products</a>
+      <span class="mx-2">/</span>
+      <span>Moulds (Formwork)</span>
+    </nav>
+
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      Moulds (Formwork)
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">土木・建築用型枠</p>
+
+    <img
+      src="/images/products/mould.webp"
+      alt="RC-segment moulds at a partner plant"
+      width="1200"
+      height="675"
+      loading="lazy"
+      class="w-full h-auto rounded mb-10"
+    />
+
+    <div class="prose-jp">
+      <h2>Overview</h2>
+      <p>
+        Moulds — such as RC-segment moulds — are used to manufacture precast concrete (PC) products in factories. We supply high-precision moulds including RC-segment moulds for shield tunneling, and PC slab moulds for highway repair applications.
+      </p>
+      <p>
+        Through our manufacturing-control team at partner plants, we maintain <strong>tolerances within ±0.5 mm</strong> while supporting mass production. This delivers Japanese-grade quality with the cost-efficiency of overseas procurement.
+      </p>
+
+      <h2>Main Products</h2>
+      <ul>
+        <li>RC-segment moulds (for shield tunneling)</li>
+        <li>PC slab moulds (highway repair, etc.)</li>
+        <li>Custom moulds tailored to specifications</li>
+      </ul>
+
+      <h2>Specifications</h2>
+      <table>
+        <tbody>
+          <tr><th>Dimensional tolerance</th><td>Within ±0.5 mm</td></tr>
+          <tr><th>Main applications</th><td>RC segments, PC slabs, and other PC products</td></tr>
+          <tr><th>Manufacturing</th><td>Supervised production at overseas partner plants</td></tr>
+          <tr><th>Durability</th><td>Designed for long-term repeat use</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Industry-leading dimensional precision (±0.5 mm)</li>
+        <li>Balance of durability and precision</li>
+        <li>Capable of handling large and special shapes</li>
+        <li>Minimal quality variance in mass production</li>
+      </ul>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href={p('/contact/')}
+        class="bg-brand-900 text-white font-semibold px-5 py-3 rounded hover:bg-brand-700 transition-colors"
+      >
+        Contact Us →
+      </a>
+    </div>
+  </section>
+</Layout>
