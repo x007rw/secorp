@@ -141,27 +141,68 @@ const products = [
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-brand-900 mb-4">
-      資材調達のご相談を承ります
+  <!-- ACCESS / MAP -->
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-8 text-brand-900">
+      アクセス
     </h2>
-    <p class="text-slate-600 mb-8">
-      シールドセグメント、コンクリート補強材、土木建築用型枠などのお見積り・技術相談はお気軽にどうぞ。
-    </p>
-    <div class="flex flex-wrap gap-3 justify-center">
-      <a
-        href={p('/contact/')}
-        class="bg-brand-900 text-white font-semibold px-6 py-3 rounded hover:bg-brand-700 transition-colors"
-      >
-        お問い合わせフォーム
-      </a>
-      <a
-        href="tel:0444336399"
-        class="border border-slate-300 text-brand-900 font-semibold px-6 py-3 rounded hover:bg-slate-50 transition-colors"
-      >
-        TEL: 044-433-6399
-      </a>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="space-y-5 text-slate-700">
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Address</p>
+          <p class="text-base font-semibold text-slate-800">
+            〒211-0025<br />
+            神奈川県川崎市中原区木月2-2-34 鈴木ビル3F
+          </p>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Contact</p>
+          <p class="text-base">
+            TEL: <a href="tel:0444336399" class="text-brand-600 font-semibold">044-433-6399</a><br />
+            FAX: 044-434-8488
+          </p>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nearest Station</p>
+          <ul class="text-sm space-y-1">
+            <li>東急東横線・目黒線「元住吉」駅 東口より徒歩約1分</li>
+            <li>JR南武線・東急東横線「武蔵小杉」駅 南口より徒歩約15分</li>
+          </ul>
+        </div>
+      </div>
+      <iframe
+        class="w-full h-80 rounded shadow-sm border border-slate-200"
+        src="https://maps.google.co.jp/maps?q=Japan,kanagawa,kawasaki,nakaharaku,kizuki%202-2-34&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="鈴木エンタープライズ 所在地"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        資材調達のご相談を承ります
+      </h2>
+      <p class="text-slate-300 mb-8">
+        シールドセグメント、コンクリート補強材、土木建築用型枠などのお見積り・技術相談はお気軽にどうぞ。
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href={p('/contact/')}
+          class="bg-accent-400 text-brand-900 font-semibold px-6 py-3 rounded hover:bg-accent-300 transition-colors"
+        >
+          お問い合わせフォーム
+        </a>
+        <a
+          href="tel:0444336399"
+          class="border border-white/40 text-white font-semibold px-6 py-3 rounded hover:bg-white/10 transition-colors"
+        >
+          TEL: 044-433-6399
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

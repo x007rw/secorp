@@ -13,7 +13,16 @@ const p = (path: string) => getLocalizedPath(path, lang);
 <footer class="bg-brand-900 text-slate-300 text-sm mt-20">
   <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
     <div>
-      <p class="font-bold text-white mb-3">{t('site.name')}</p>
+      <div class="flex items-center gap-3 mb-4">
+        <img
+          src="/images/logo.jpg"
+          alt={t('site.name')}
+          width="44"
+          height="30"
+          class="h-9 w-auto bg-white p-1 rounded"
+        />
+        <p class="font-bold text-white">{t('site.name')}</p>
+      </div>
       <p class="text-slate-400 leading-relaxed">
         〒211-0025<br />
         {t('footer.address')}

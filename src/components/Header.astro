@@ -26,7 +26,13 @@ const altPath = altLang === 'ja' ? stripped : `/en${stripped}`.replace(/\/+$/, '
 <header class="fixed top-0 inset-x-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
   <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
     <a href={p('/')} class="flex items-center gap-2.5 group">
-      <div class="w-8 h-8 bg-brand-900 text-white rounded flex items-center justify-center font-bold text-sm">SE</div>
+      <img
+        src="/images/logo.jpg"
+        alt={t('site.name')}
+        width="44"
+        height="30"
+        class="h-8 w-auto"
+      />
       <span class="font-bold text-sm sm:text-base text-brand-900">
         {t('site.name')}
       </span>

@@ -16,7 +16,7 @@ const {
   title,
   description,
   lang = defaultLang,
-  ogImage = '/images/ogp.png',
+  ogImage = '/images/logo.jpg',
   noindex = false,
 } = Astro.props;
 
@@ -43,7 +43,7 @@ const orgJsonLd = {
   name: '株式会社鈴木エンタープライズ',
   alternateName: 'SUZUKI ENTERPRISE CO., LTD.',
   url: 'https://www.secorp.co.jp/',
-  logo: 'https://www.secorp.co.jp/images/logo.png',
+  logo: 'https://www.secorp.co.jp/images/logo.jpg',
   foundingDate: '1967-07',
   description: t('site.description'),
   knowsAbout: [
@@ -90,6 +90,8 @@ const orgJsonLd = {
     <link rel="alternate" hreflang="x-default" href={jaUrl} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/jpeg" href="/images/logo.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo.jpg" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
