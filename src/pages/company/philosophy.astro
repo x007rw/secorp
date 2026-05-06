@@ -3,40 +3,112 @@ import Layout from '../../layouts/Layout.astro';
 const lang = 'ja' as const;
 
 const visions = [
-  { num: 'VISION 1', body: '人間主義によって土木製品・インフラの品質向上とコスト削減を同時に達成する。' },
-  { num: 'VISION 2', body: '広くアジアの人材・技術者を集め、プラットフォームを形成しアジアの土木・インフラに貢献する。' },
-  { num: 'VISION 3', body: 'アジア及び世界に同様のビジネスパートナーと集い、後世の人材育成・技術派生に努める。' },
+  { num: 'VISION 1', body: '人間主義によって土木製品・インフラの品質の向上とコスト削減を同時に達成する。' },
+  { num: 'VISION 2', body: '広くアジアの人材・技術者を集め、プラットフォームを形成してアジアの土木・インフラに広く貢献する。' },
+  { num: 'VISION 3', body: 'アジア及び世界に同様のビジネスパートナーと集い、後世の人材の育成・技術の派生に努める。' },
 ];
 ---
 
 <Layout
   title="企業理念"
-  description="株式会社鈴木エンタープライズの企業理念とビジョン。半世紀以上にわたる東アジアの調達ネットワーク、人間主義によるイノベーションでインフラを支える。"
+  description="株式会社鈴木エンタープライズの企業理念とビジョン。アジアのインフラに安全性とコスト削減を提供することを使命に、人間主義によるイノベーションでインフラを支える。"
   lang={lang}
 >
-  <section class="py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4">
-      <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+  <!-- Hero banner with tunnel image -->
+  <section class="relative bg-brand-900 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/hero-tunnel.webp"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+        width="1920"
+        height="1081"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-900/85 to-brand-900/40"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <p class="text-xs uppercase tracking-widest text-accent-300 mb-3">Our Concept</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
         企業理念
       </h1>
-      <p class="text-sm text-slate-500 mb-10 ml-1">Our Concept</p>
+      <p class="mt-4 text-slate-100 max-w-2xl">
+        アジアのインフラに、安全性とコスト削減を提供する。
+      </p>
+    </div>
+  </section>
 
+  <!-- Greeting -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-xl md:text-2xl font-bold border-l-4 border-accent-400 pl-3 mb-6 text-brand-900">
+        ご挨拶
+      </h2>
       <div class="space-y-5 leading-relaxed text-slate-700">
         <p>
-          私共、株式会社鈴木エンタープライズは半世紀以上にわたり東アジアを中心に鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。今後も日本のインフラ事業の安全性向上、高品質、コスト削減に努めて参ります。
+          私共、株式会社鈴木エンタープライズは半世紀以上にわたり東アジアを中心に、鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。今後も日本のインフラ事業の安全性の向上、高品質、コスト削減に努めて参ります。
         </p>
         <p>
-          本邦並びに先進国の多くは出生率低下による人口の減少、ひいては土木・インフラ事業に関わる技術者や作業員の減少により、新旧合わせたインフラ構造物の評価・検査体制の維持が困難になりつつあります。安全率の向上とコスト削減を同時に達成する為には、人間の自由な意志と発想によるイノベーションが不可欠だと確信しております。
+          しかしながら本邦並びに先進国の多くは出生率低下による人口の減少、ひいては日本の土木・インフラ事業に関わる技術者や作業員の減少にともない、新旧合わせたインフラ構造物の評価・検査体制の維持が困難になっております。そして本邦ではインフラや土木構造物の安全率を高める命題のあまりに人件費の高騰を招き、ひいてはインフラ事業そのもののコストが大幅に上昇している現況です。
         </p>
         <p>
-          実際に当社の鋼製セグメント製造監理チームは、提携工場における特殊工法の導入により、コスト削減と品質向上の両立を達成して参りました。
+          私共はこういった二律背反の命題、<strong class="text-brand-900">安全率の向上とコスト削減を同時に達成</strong>する為に、何が必要か長年考えて参りましたが、それはやはり<strong class="text-brand-900">人間の自由な意志と発想によるイノベーション（Innovation）</strong>に他ならないと確信しております。ここで言うイノベーションとは、ドラスティックな発明でなくとも、これら製品の製造工程を改良することによって、コスト削減も品質向上も同時に成しえることも入ります。
+        </p>
+        <p>
+          実際に私共の鋼製セグメントの製造監理チームは各種提携工場においてある特殊な工法を導入することによって、これを（コスト削減と品質向上の両立）を達成しました。
+        </p>
+        <p>
+          私共の製造監理技術者のみならず、アジアに広がる提携先の製造工場の技術者も日本のみならずアジアの宝だと信じております。この為には、これら技術者の知見をITによって「見える化・データ化」も必要になってきますが、これは今後の課題です。今は私共と提携工場の技術者を含めて組織化し、プラットフォーム又は「ビジネス・エコシステム」を構築し、アジア、ひいては世界の土木・インフラに安全性とコスト削減の両立を提案してまいります。
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-3 gap-4 pt-10">
+      <!-- Reference -->
+      <p class="mt-8 text-xs text-slate-500 border-t border-slate-200 pt-4">
+        参考：慶應義塾大学 商学研究科 菊澤研宗教授（2017）『組織の不条理』中公文庫
+      </p>
+    </div>
+  </section>
+
+  <!-- Manufacturing example image -->
+  <section class="bg-slate-100">
+    <div class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+      <figure class="overflow-hidden rounded-lg shadow-md">
+        <img
+          src="/images/products/steel-segment.webp"
+          alt="提携工場における鋼製セグメント製造監理の現場"
+          width="1200"
+          height="675"
+          loading="lazy"
+          class="w-full h-auto"
+        />
+        <figcaption class="bg-white px-4 py-3 text-xs text-slate-500 text-center">
+          提携工場での鋼製セグメント製造監理 — 特殊工法によりコスト削減と品質向上の両立を実現
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Philosophy statement -->
+  <section class="py-16 md:py-20 bg-brand-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xs uppercase tracking-widest text-accent-300 mb-4">企業理念</p>
+      <p class="text-2xl md:text-4xl font-bold leading-relaxed">
+        アジアのインフラに、<br />
+        <span class="text-accent-300">安全性</span>と<span class="text-accent-300">コスト削減</span>を提供する。
+      </p>
+    </div>
+  </section>
+
+  <!-- Visions -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl md:text-2xl font-bold border-l-4 border-accent-400 pl-3 mb-8 text-brand-900">
+        企業ヴィジョン
+      </h2>
+      <div class="grid sm:grid-cols-3 gap-4">
         {visions.map((vision) => (
-          <div class="bg-white p-5 rounded shadow-sm border border-slate-200">
-            <p class="text-accent-600 font-semibold text-sm mb-2 tracking-wider">{vision.num}</p>
+          <div class="bg-white p-6 rounded shadow-sm border border-slate-200">
+            <p class="text-accent-600 font-semibold text-sm mb-3 tracking-wider">{vision.num}</p>
             <p class="text-sm text-slate-700 leading-relaxed">{vision.body}</p>
           </div>
         ))}
