@@ -8,15 +8,13 @@ const { lang = 'ja' } = Astro.props;
 const labels = {
   ja: {
     email: 'クリックでメーラーが起動します',
-    telAction: 'クリックで電話発信',
-    telHours: '受付：平日 9:00–17:30（土日祝休）',
+    tel: 'クリックで電話発信します',
     copy: 'コピー',
     copied: 'コピーしました',
   },
   en: {
     email: 'Click to open your mail client',
-    telAction: 'Click to call',
-    telHours: 'Mon–Fri 9:00–17:30 JST',
+    tel: 'Click to call',
     copy: 'Copy',
     copied: 'Copied',
   },
@@ -38,7 +36,7 @@ const items = [
     value: lang === 'ja' ? '044-433-6399' : '+81-44-433-6399',
     copyValue: '044-433-6399',
     href: 'tel:0444336399',
-    note: `${labels.telAction} ／ ${labels.telHours}`,
+    note: labels.tel,
     icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11 11 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />',
     iconBg: 'bg-brand-900',
   },
