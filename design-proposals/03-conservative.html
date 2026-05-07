@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>株式会社鈴木エンタープライズ | 保守的法人系デザイン案</title>
+<meta name="description" content="株式会社鈴木エンタープライズ ── シールド工法用セグメント、コンクリート補強材、土木建築用型枠の専門商社。" />
+<link rel="icon" type="image/svg+xml" href="../public/images/logo.svg" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          corp:    '#003366',     // コーポレート紺
+          corp2:   '#002244',     // 濃紺
+          gold:    '#b08d40',     // 控えめな金
+          paper:   '#f5f5f5',     // 紙白
+          line:    '#d4d4d8',     // 罫線グレー
+        },
+      }
+    }
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: "Noto Sans JP", sans-serif; color: #1a1a1a; }
+  /* 公式書類風テーブル */
+  .formal-table { border: 1px solid #003366; border-collapse: collapse; }
+  .formal-table th { background: #003366; color: white; font-weight: 500; padding: 0.5rem 1rem; text-align: left; }
+  .formal-table td { padding: 0.6rem 1rem; border-top: 1px solid #d4d4d8; }
+  .formal-table tr:nth-child(even) td { background: #f5f5f5; }
+</style>
+</head>
+
+<body class="bg-white">
+
+<!-- TOP NOTICE BAR -->
+<div class="bg-corp2 text-white text-xs">
+  <div class="max-w-6xl mx-auto px-4 py-1.5 flex justify-between items-center">
+    <span>本社：神奈川県川崎市中原区木月2-2-34 鈴木ビル3F　TEL: 044-433-6399</span>
+    <div class="hidden sm:flex gap-3">
+      <a href="#" class="hover:text-gold">日本語</a>
+      <span class="text-white/40">|</span>
+      <a href="#" class="hover:text-gold">English</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="bg-white border-b-2 border-corp shadow-sm sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between gap-3">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="../public/images/logo.svg" alt="株式会社鈴木エンタープライズ" class="h-12 w-auto" />
+      <div class="leading-tight">
+        <p class="text-base sm:text-lg font-bold text-corp">株式会社鈴木エンタープライズ</p>
+        <p class="text-[10px] sm:text-xs text-slate-500">SUZUKI ENTERPRISE CO., LTD.</p>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 text-sm">
+      <a href="#about"    class="px-3 py-2 text-slate-700 hover:bg-paper hover:text-corp transition-colors">会社案内</a>
+      <a href="#concept"  class="px-3 py-2 text-slate-700 hover:bg-paper hover:text-corp transition-colors">企業理念</a>
+      <a href="#products" class="px-3 py-2 text-slate-700 hover:bg-paper hover:text-corp transition-colors">事業内容</a>
+      <a href="#history"  class="px-3 py-2 text-slate-700 hover:bg-paper hover:text-corp transition-colors">沿革</a>
+      <a href="#contact"  class="px-3 py-2 text-white bg-corp hover:bg-corp2 transition-colors">お問い合わせ</a>
+    </nav>
+    <button id="menu-toggle" type="button" class="md:hidden p-2 -mr-2 text-slate-700" aria-label="menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+    </button>
+  </div>
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-line">
+    <ul class="px-4 py-1">
+      <li><a href="#about"    class="block py-3 border-b border-line">会社案内</a></li>
+      <li><a href="#concept"  class="block py-3 border-b border-line">企業理念</a></li>
+      <li><a href="#products" class="block py-3 border-b border-line">事業内容</a></li>
+      <li><a href="#history"  class="block py-3 border-b border-line">沿革</a></li>
+      <li><a href="#contact"  class="block py-3">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO（控えめ）-->
+  <section class="bg-corp text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 grid md:grid-cols-2 items-center gap-8">
+      <div>
+        <p class="text-xs text-gold tracking-widest mb-3">CIVIL ENGINEERING &amp; CONSTRUCTION MATERIALS</p>
+        <h1 class="text-2xl md:text-4xl font-bold leading-relaxed mb-4">
+          鋼材・コンクリート補強材の<br />専門商社
+        </h1>
+        <p class="text-sm md:text-base text-white/80 leading-relaxed mb-6">
+          1967年創業。シールド工法用セグメント、コンクリート補強繊維、土木建築用型枠を、半世紀以上の調達ネットワークでお届けします。
+        </p>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a href="#products" class="bg-white text-corp px-5 py-2 hover:bg-paper transition-colors">事業内容を見る</a>
+          <a href="#contact"  class="border border-white/40 text-white px-5 py-2 hover:bg-white/10 transition-colors">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <img src="../public/images/hero-tunnel.webp" alt="" class="w-full h-64 object-cover" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO QUICK BAR -->
+  <section class="bg-paper border-b border-line">
+    <div class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="border-r border-line">
+        <p class="text-xs text-slate-500">創業</p>
+        <p class="text-lg md:text-xl font-bold text-corp">1967年7月</p>
+      </div>
+      <div class="border-r border-line">
+        <p class="text-xs text-slate-500">資本金</p>
+        <p class="text-lg md:text-xl font-bold text-corp">8,000万円</p>
+      </div>
+      <div class="md:border-r border-line">
+        <p class="text-xs text-slate-500">事業歴</p>
+        <p class="text-lg md:text-xl font-bold text-corp">59<span class="text-xs">年</span></p>
+      </div>
+      <div>
+        <p class="text-xs text-slate-500">代表者</p>
+        <p class="text-lg md:text-xl font-bold text-corp">鈴木 裕哉</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-[200px,1fr] gap-8">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-corp">会社案内</h2>
+        <p class="text-xs text-slate-500 tracking-widest mt-1">COMPANY</p>
+        <div class="w-12 h-0.5 bg-gold mt-3"></div>
+      </div>
+      <table class="formal-table w-full text-sm">
+        <tbody>
+          <tr><th class="w-1/3">商号</th><td>株式会社 鈴木エンタープライズ</td></tr>
+          <tr><th>英文社名</th><td>SUZUKI ENTERPRISE CO., LTD.</td></tr>
+          <tr><th>本社所在地</th><td>〒211-0025<br />神奈川県川崎市中原区木月2-2-34 鈴木ビル3F</td></tr>
+          <tr><th>電話／FAX</th><td>TEL: 044-433-6399 ／ FAX: 044-434-8488</td></tr>
+          <tr><th>創業</th><td>1967年7月</td></tr>
+          <tr><th>資本金</th><td>8,000万円</td></tr>
+          <tr><th>法人番号</th><td>3020001076051</td></tr>
+          <tr><th>代表者</th><td>代表取締役　鈴木裕哉</td></tr>
+          <tr><th>事業内容</th><td>土木・建設・プラント分野向け鉄鋼・非鉄金属原材料および加工品の輸入・卸売</td></tr>
+          <tr><th>主要取引銀行</th><td>三井住友銀行・横浜銀行・城南信用金庫</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section id="concept" class="py-16 bg-paper border-y border-line">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-[200px,1fr] gap-8">
+        <div>
+          <h2 class="text-xl md:text-2xl font-bold text-corp">企業理念</h2>
+          <p class="text-xs text-slate-500 tracking-widest mt-1">PHILOSOPHY</p>
+          <div class="w-12 h-0.5 bg-gold mt-3"></div>
+        </div>
+        <div>
+          <div class="bg-white border border-corp p-6 md:p-8 mb-6">
+            <p class="text-lg md:text-2xl font-bold text-corp leading-loose text-center">
+              アジアのインフラに、<br />安全性とコスト削減を提供する。
+            </p>
+          </div>
+          <div class="space-y-3 text-sm leading-relaxed text-slate-700">
+            <p>当社は1967年の創業以来、半世紀以上にわたり東アジアを中心に、鉄鋼・土木建築資材の品質向上とコスト削減に取り組んでまいりました。</p>
+            <p>出生率低下による人口減少、技術者・作業員の減少という社会課題に対し、安全率の向上とコスト削減を同時に達成するためには、人間の自由な意志と発想によるイノベーションが不可欠だと確信しております。</p>
+          </div>
+          <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
+            <div class="bg-white border border-line p-4">
+              <p class="text-corp font-bold text-xs mb-2">VISION 1</p>
+              <p>人間主義による品質向上とコスト削減の同時達成</p>
+            </div>
+            <div class="bg-white border border-line p-4">
+              <p class="text-corp font-bold text-xs mb-2">VISION 2</p>
+              <p>アジアの人材・技術者プラットフォームの形成</p>
+            </div>
+            <div class="bg-white border border-line p-4">
+              <p class="text-corp font-bold text-xs mb-2">VISION 3</p>
+              <p>パートナーとの協業・後世への技術継承</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="py-16 max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-[200px,1fr] gap-8">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-corp">事業内容</h2>
+        <p class="text-xs text-slate-500 tracking-widest mt-1">PRODUCTS</p>
+        <div class="w-12 h-0.5 bg-gold mt-3"></div>
+      </div>
+      <div>
+        <table class="formal-table w-full text-sm">
+          <thead>
+            <tr><th class="w-2/5">品目</th><th>仕様・特長</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold text-corp">RCセグメント<br /><span class="text-xs font-normal text-slate-500">RC Segment</span></td>
+              <td>シールド工法用の鉄筋コンクリート製内壁部材。日本基準で海外提携工場にて監理生産。</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-corp">鋼製セグメント<br /><span class="text-xs font-normal text-slate-500">Steel Segment</span></td>
+              <td>ガス導管・地下鉄・道路トンネル等。寸法精度 ±1mm 以内で量産対応。</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-corp">土木・建築用型枠<br /><span class="text-xs font-normal text-slate-500">Moulds (Formwork)</span></td>
+              <td>RCセグメント用型枠（±0.5mm精度）、PC床板用型枠の海外製作対応。</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-corp">スチール・ファイバー<br /><span class="text-xs font-normal text-slate-500">Steel Fiber (BUNDREX®)</span></td>
+              <td>韓国KOSTEEL社製 BUNDREX® の日本国内総代理店。SFRC補強用 年間2,000MT規模。</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-corp">ポリプロピレン・ファイバー<br /><span class="text-xs font-normal text-slate-500">Polypropylene Fiber</span></td>
+              <td>非構造的補強（ひび割れ・剥離防止）用高強度PP繊維。大手ゼネコン納入実績。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 写真帯 -->
+        <div class="mt-6 grid grid-cols-3 md:grid-cols-5 gap-2">
+          <img src="../public/images/products/rc-segment.webp"    class="aspect-square object-cover border border-line" alt="" />
+          <img src="../public/images/products/steel-segment.webp" class="aspect-square object-cover border border-line" alt="" />
+          <img src="../public/images/products/mould.webp"         class="aspect-square object-cover border border-line" alt="" />
+          <img src="../public/images/products/steel-fiber.webp"   class="aspect-square object-cover border border-line" alt="" />
+          <img src="../public/images/products/pp-fiber.webp"      class="aspect-square object-cover border border-line" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="history" class="py-16 bg-paper border-y border-line">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-[200px,1fr] gap-8">
+        <div>
+          <h2 class="text-xl md:text-2xl font-bold text-corp">沿革</h2>
+          <p class="text-xs text-slate-500 tracking-widest mt-1">HISTORY</p>
+          <div class="w-12 h-0.5 bg-gold mt-3"></div>
+        </div>
+        <table class="formal-table w-full text-sm bg-white">
+          <tbody>
+            <tr><th class="w-32">1967年</th><td>株式会社鈴木エンタープライズ設立</td></tr>
+            <tr><th>1972年〜</th><td>韓国浦項製鉄（POSCO）鋼材の本邦独占代理店として供給開始</td></tr>
+            <tr><th>1978年〜</th><td>中近東・アジア圏プロジェクト向け建設資材・機器の供給</td></tr>
+            <tr><th>1982年〜</th><td>韓国製鉄鋼製品の独自供給・販売システム構築</td></tr>
+            <tr><th>1988年〜</th><td>韓国製セメント（東洋セメント・雙龍セメント）供給開始</td></tr>
+            <tr><th>1996年〜</th><td>RC・鋼製セグメントの海外調達・供給開始</td></tr>
+            <tr><th>2008年〜</th><td>コンクリート補強繊維の海外調達・供給（年間2,000MT）</td></tr>
+            <tr><th>2023年〜</th><td>土木・建築用型枠の包括的海外製造体制を構築</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-[200px,1fr] gap-8">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-corp">お問い合わせ</h2>
+        <p class="text-xs text-slate-500 tracking-widest mt-1">CONTACT</p>
+        <div class="w-12 h-0.5 bg-gold mt-3"></div>
+      </div>
+      <div>
+        <p class="text-sm text-slate-700 mb-6">製品仕様のご確認、お見積り依頼、お取引のご相談などは、下記の連絡先までお願いいたします。</p>
+        <table class="formal-table w-full text-sm">
+          <tbody>
+            <tr><th class="w-1/4">Email</th><td><a href="mailto:info@secorp.co.jp" class="text-corp font-semibold hover:underline">info@secorp.co.jp</a></td></tr>
+            <tr><th>電話</th><td><a href="tel:0444336399" class="text-corp font-semibold hover:underline">044-433-6399</a>（受付：平日 9:00〜17:30）</td></tr>
+            <tr><th>FAX</th><td>044-434-8488</td></tr>
+            <tr><th>所在地</th><td>〒211-0025 神奈川県川崎市中原区木月2-2-34 鈴木ビル3F</td></tr>
+            <tr><th>最寄駅</th><td>東急東横線・目黒線「元住吉」駅 東口より徒歩約1分</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-corp text-white text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="../public/images/logo.svg" alt="" class="h-10 w-auto bg-white p-1 rounded" />
+        <p class="font-bold">株式会社鈴木エンタープライズ</p>
+      </div>
+      <p class="text-white/70 text-xs leading-relaxed">〒211-0025<br />神奈川県川崎市中原区木月2-2-34 鈴木ビル3F</p>
+    </div>
+    <div>
+      <p class="font-bold mb-3 text-xs tracking-widest">MENU</p>
+      <ul class="space-y-1.5 text-xs">
+        <li><a href="#about" class="hover:text-gold">会社案内</a></li>
+        <li><a href="#concept" class="hover:text-gold">企業理念</a></li>
+        <li><a href="#products" class="hover:text-gold">事業内容</a></li>
+        <li><a href="#history" class="hover:text-gold">沿革</a></li>
+        <li><a href="#contact" class="hover:text-gold">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-bold mb-3 text-xs tracking-widest">CONTACT</p>
+      <p class="text-xs">TEL: 044-433-6399</p>
+      <p class="text-xs">FAX: 044-434-8488</p>
+      <p class="text-xs">Email: info@secorp.co.jp</p>
+      <p class="mt-3 text-xs"><a href="#" class="text-white/70 hover:text-gold">プライバシーポリシー</a></p>
+    </div>
+  </div>
+  <div class="border-t border-white/20">
+    <p class="max-w-6xl mx-auto px-4 py-3 text-[10px] text-white/60 text-center">© 2026 SUZUKI ENTERPRISE CO., LTD. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('menu-toggle');
+  const m = document.getElementById('mobile-menu');
+  t?.addEventListener('click', () => m.classList.toggle('hidden'));
+  m?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => m.classList.add('hidden')));
+</script>
+</body>
+</html>

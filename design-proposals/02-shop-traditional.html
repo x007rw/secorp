@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>株式会社鈴木エンタープライズ | 老舗風デザイン案</title>
+<meta name="description" content="株式会社鈴木エンタープライズは、シールド工法用RC・鋼製セグメント、コンクリート補強用スチール・ファイバー／ポリプロピレン・ファイバー、土木建築用型枠などを供給する川崎市の専門商社です。" />
+<link rel="icon" type="image/svg+xml" href="../public/images/logo.svg" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          sumi:    '#1a1a1a',     // 墨色
+          ai:      '#1c2c44',     // 藍色
+          ainavy:  '#27384f',     // 藍紺
+          shu:     '#a14040',     // 朱色（控えめ）
+          shu2:    '#8b3737',     // 濃朱
+          washi:   '#f5efe1',     // 和紙ベージュ
+          washi2:  '#ebe2cc',     // 濃和紙
+          kogane:  '#967a3a',     // 古金
+        },
+        fontFamily: {
+          serif: ['"Noto Serif JP"', 'serif'],
+          sans:  ['"Noto Sans JP"', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: "Noto Sans JP", sans-serif; background: #f5efe1; color: #1a1a1a; }
+  h1, h2, h3, .serif { font-family: "Noto Serif JP", serif; }
+
+  /* 和紙テクスチャ風背景 */
+  .washi-bg {
+    background-color: #f5efe1;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(150,122,58,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(28,44,68,0.05) 0%, transparent 50%);
+  }
+
+  /* 和風二重罫線 */
+  .border-double-jp {
+    border-top: 3px double #1c2c44;
+    border-bottom: 3px double #1c2c44;
+  }
+
+  /* 縦書き */
+  .vertical { writing-mode: vertical-rl; text-orientation: upright; }
+
+  /* 朱印風 */
+  .stamp {
+    display: inline-block;
+    border: 2px solid #a14040;
+    color: #a14040;
+    padding: 0.25rem 0.6rem;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    background: rgba(245,239,225,0.7);
+    transform: rotate(-2deg);
+  }
+
+  /* 見出しの装飾 */
+  .heading-jp {
+    position: relative;
+    display: inline-block;
+    padding: 0 1.5rem;
+  }
+  .heading-jp::before, .heading-jp::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 1.5rem;
+    height: 1px;
+    background: #1c2c44;
+  }
+  .heading-jp::before { left: -1.5rem; }
+  .heading-jp::after  { right: -1.5rem; }
+
+  /* 製品カード */
+  .product-card {
+    background: #f5efe1;
+    border: 1px solid #ebe2cc;
+    transition: all 0.3s;
+  }
+  .product-card:hover {
+    border-color: #967a3a;
+    box-shadow: 0 4px 12px rgba(28,44,68,0.08);
+  }
+</style>
+</head>
+
+<body class="washi-bg">
+
+<!-- HEADER：のれん風 -->
+<header class="bg-ai text-washi sticky top-0 z-40 shadow-md">
+  <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between gap-3">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="../public/images/logo.svg" alt="株式会社鈴木エンタープライズ" class="h-12 w-auto bg-washi p-1 rounded-sm" />
+      <div class="leading-tight">
+        <p class="serif text-base sm:text-lg font-bold tracking-wider">株式会社鈴木エンタープライズ</p>
+        <p class="text-[10px] sm:text-xs text-washi2 tracking-wider">SUZUKI ENTERPRISE CO., LTD. ／ 創業 一九六七年</p>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm serif">
+      <a href="#about"    class="text-washi hover:text-kogane transition-colors">会社概要</a>
+      <a href="#concept"  class="text-washi hover:text-kogane transition-colors">企業理念</a>
+      <a href="#products" class="text-washi hover:text-kogane transition-colors">取扱品目</a>
+      <a href="#contact"  class="text-washi hover:text-kogane transition-colors">お問合せ</a>
+    </nav>
+    <button id="menu-toggle" type="button" class="md:hidden p-2 -mr-2" aria-label="menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-washi/20">
+    <ul class="px-4 py-2 serif">
+      <li><a href="#about"    class="block py-3 border-b border-washi/10">会社概要</a></li>
+      <li><a href="#concept"  class="block py-3 border-b border-washi/10">企業理念</a></li>
+      <li><a href="#products" class="block py-3 border-b border-washi/10">取扱品目</a></li>
+      <li><a href="#contact"  class="block py-3">お問合せ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO：和の落ち着き -->
+  <section class="relative bg-ai text-washi overflow-hidden">
+    <div class="absolute inset-0 opacity-25">
+      <img src="../public/images/hero-tunnel.webp" alt="" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ai via-ai/70 to-ai"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-24 md:py-32 text-center">
+      <p class="text-xs tracking-[0.3em] text-kogane mb-6">— 創業 一九六七年 —</p>
+      <h1 class="serif text-3xl md:text-5xl font-bold leading-relaxed mb-8">
+        鉄鋼・建材の品を、<br />
+        東アジアより日本へ。
+      </h1>
+      <div class="border-t border-b border-washi/30 py-6 max-w-2xl mx-auto">
+        <p class="text-base md:text-lg leading-loose text-washi2">
+          シールド工法用セグメント、コンクリート補強繊維、<br class="hidden md:block" />
+          土木建築用型枠 ── 半世紀以上にわたる調達網で、<br class="hidden md:block" />
+          日本の社会基盤を支えてまいりました。
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
+        <a href="#products" class="bg-shu text-washi px-8 py-3 text-sm tracking-widest serif hover:bg-shu2 transition-colors">取扱品目を見る</a>
+        <a href="#contact"  class="border border-washi/50 text-washi px-8 py-3 text-sm tracking-widest serif hover:bg-washi/10 transition-colors">お問合せ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs tracking-[0.3em] text-kogane mb-2">ABOUT US</p>
+      <h2 class="serif text-2xl md:text-3xl font-bold text-ai"><span class="heading-jp">会社概要</span></h2>
+    </div>
+
+    <table class="w-full text-sm md:text-base border-double-jp serif">
+      <tbody class="divide-y divide-ai/20">
+        <tr><th class="py-4 px-3 text-left text-ai font-bold w-1/3 align-top">商　号</th><td class="py-4 px-3">株式会社 鈴木エンタープライズ</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">英文社名</th><td class="py-4 px-3">SUZUKI ENTERPRISE CO., LTD.</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">所在地</th><td class="py-4 px-3">〒211-0025　神奈川県川崎市中原区木月二丁目二番三十四号<br />鈴木ビル 三階</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">電　話</th><td class="py-4 px-3">０４４—４３３—６３９９</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">創　業</th><td class="py-4 px-3">一九六七年（昭和四十二年）七月</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">資本金</th><td class="py-4 px-3">金 八千万円</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">代表者</th><td class="py-4 px-3">代表取締役　鈴木裕哉</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">事業内容</th><td class="py-4 px-3">土木・建設・プラント分野向け鉄鋼・非鉄金属原材料および加工品の輸入・卸売</td></tr>
+        <tr><th class="py-4 px-3 text-left text-ai font-bold align-top">主要取引銀行</th><td class="py-4 px-3">三井住友銀行・横浜銀行・城南信用金庫</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONCEPT：理念 -->
+  <section id="concept" class="py-20 bg-washi2/50 border-y border-ai/15">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xs tracking-[0.3em] text-kogane mb-2">OUR CONCEPT</p>
+      <h2 class="serif text-2xl md:text-3xl font-bold text-ai mb-10"><span class="heading-jp">企業理念</span></h2>
+      <div class="bg-washi border border-ai/20 p-8 md:p-12 shadow-sm">
+        <p class="serif text-xl md:text-2xl leading-loose text-ai font-bold">
+          アジアのインフラに、<br />
+          安全性とコスト削減を提供する。
+        </p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-3 gap-4 text-left">
+        <div class="bg-washi border-l-4 border-shu p-5">
+          <p class="serif text-shu font-bold text-sm mb-2">VISION 一</p>
+          <p class="text-sm leading-relaxed">人間主義によって土木製品・インフラの品質の向上とコスト削減を同時に達成する。</p>
+        </div>
+        <div class="bg-washi border-l-4 border-shu p-5">
+          <p class="serif text-shu font-bold text-sm mb-2">VISION 二</p>
+          <p class="text-sm leading-relaxed">広くアジアの人材・技術者を集め、プラットフォームを形成してアジアの土木・インフラに広く貢献する。</p>
+        </div>
+        <div class="bg-washi border-l-4 border-shu p-5">
+          <p class="serif text-shu font-bold text-sm mb-2">VISION 三</p>
+          <p class="text-sm leading-relaxed">アジア及び世界に同様のビジネスパートナーと集い、後世の人材の育成・技術の派生に努める。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="py-20 max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs tracking-[0.3em] text-kogane mb-2">PRODUCTS</p>
+      <h2 class="serif text-2xl md:text-3xl font-bold text-ai"><span class="heading-jp">取扱品目</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="#" class="product-card block">
+        <div class="aspect-video overflow-hidden bg-washi2"><img src="../public/images/products/rc-segment.webp" alt="RCセグメント" class="w-full h-full object-cover" loading="lazy" /></div>
+        <div class="p-5">
+          <p class="text-xs text-kogane tracking-widest mb-1">RC SEGMENT</p>
+          <h3 class="serif font-bold text-ai mb-2">RCセグメント</h3>
+          <p class="text-sm leading-relaxed text-ai/80">シールド工法で構築されるトンネルの鉄筋コンクリート製内壁。日本基準を海外提携工場で監理生産。</p>
+        </div>
+      </a>
+      <a href="#" class="product-card block">
+        <div class="aspect-video overflow-hidden bg-washi2"><img src="../public/images/products/steel-segment.webp" alt="鋼製セグメント" class="w-full h-full object-cover" loading="lazy" /></div>
+        <div class="p-5">
+          <p class="text-xs text-kogane tracking-widest mb-1">STEEL SEGMENT</p>
+          <h3 class="serif font-bold text-ai mb-2">鋼製セグメント</h3>
+          <p class="text-sm leading-relaxed text-ai/80">ガス導管・地下鉄・道路トンネル等。寸法精度 ±１mm 以内で量産対応。</p>
+        </div>
+      </a>
+      <a href="#" class="product-card block">
+        <div class="aspect-video overflow-hidden bg-washi2"><img src="../public/images/products/mould.webp" alt="土木・建築用型枠" class="w-full h-full object-cover" loading="lazy" /></div>
+        <div class="p-5">
+          <p class="text-xs text-kogane tracking-widest mb-1">MOULDS</p>
+          <h3 class="serif font-bold text-ai mb-2">土木・建築用型枠</h3>
+          <p class="text-sm leading-relaxed text-ai/80">RCセグメント用型枠など、±０．５mm の高精度型枠。PC床板用にも対応。</p>
+        </div>
+      </a>
+      <a href="#" class="product-card block">
+        <div class="aspect-video overflow-hidden bg-washi2"><img src="../public/images/products/steel-fiber.webp" alt="スチールファイバー" class="w-full h-full object-cover" loading="lazy" /></div>
+        <div class="p-5">
+          <span class="stamp text-[10px] mb-1">日本総代理店</span>
+          <p class="text-xs text-kogane tracking-widest mt-2 mb-1">STEEL FIBER</p>
+          <h3 class="serif font-bold text-ai mb-2">スチール・ファイバー</h3>
+          <p class="text-sm leading-relaxed text-ai/80">韓国KOSTEEL社製 BUNDREX®。鉄筋同等の構造的補強材。</p>
+        </div>
+      </a>
+      <a href="#" class="product-card block">
+        <div class="aspect-video overflow-hidden bg-washi2"><img src="../public/images/products/pp-fiber.webp" alt="ポリプロピレン・ファイバー" class="w-full h-full object-cover" loading="lazy" /></div>
+        <div class="p-5">
+          <p class="text-xs text-kogane tracking-widest mb-1">PP FIBER</p>
+          <h3 class="serif font-bold text-ai mb-2">ポリプロピレン・ファイバー</h3>
+          <p class="text-sm leading-relaxed text-ai/80">非構造的補強（ひび割れ・剥離防止）。大手ゼネコン納入実績。</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="history" class="py-20 bg-ai text-washi">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs tracking-[0.3em] text-kogane mb-2">HISTORY</p>
+        <h2 class="serif text-2xl md:text-3xl font-bold"><span class="heading-jp">沿　革</span></h2>
+      </div>
+      <ol class="space-y-6 serif">
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九六七</span><span>株式会社鈴木エンタープライズ設立</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九七二〜</span><span>韓国浦項製鉄（POSCO）鋼材の本邦独占代理店として供給開始</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九七八〜</span><span>中近東・アジア圏プロジェクト向け建設資材・機器の供給</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九八二〜</span><span>韓国製鉄鋼製品（鋼管杭・溶接材料）の独自供給・販売システム構築</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九八八〜</span><span>韓国製セメント（東洋セメント・雙龍セメント）の供給・販売開始</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">一九九六〜</span><span>RC・鋼製セグメントの海外調達・供給開始</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4 border-b border-washi/20 pb-4"><span class="text-kogane font-bold">二〇〇八〜</span><span>コンクリート補強繊維の海外調達・供給（年間二、〇〇〇MT）</span></li>
+        <li class="grid grid-cols-[6rem,1fr] gap-4"><span class="text-kogane font-bold">二〇二三〜</span><span>土木・建築用型枠の包括的海外製造体制を構築</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs tracking-[0.3em] text-kogane mb-2">CONTACT</p>
+      <h2 class="serif text-2xl md:text-3xl font-bold text-ai"><span class="heading-jp">お問合せ</span></h2>
+    </div>
+    <div class="bg-washi border border-ai/20 p-8 md:p-10">
+      <p class="text-sm text-ai/80 mb-6 leading-relaxed">
+        製品仕様のご確認、お見積り依頼、お取引のご相談など、下記までお気軽にお問合せください。
+      </p>
+      <div class="grid md:grid-cols-2 gap-4 text-sm">
+        <div class="border border-ai/30 p-5">
+          <p class="text-xs text-kogane tracking-widest mb-2">EMAIL</p>
+          <a href="mailto:info@secorp.co.jp" class="serif text-lg font-bold text-ai hover:text-shu break-all">info@secorp.co.jp</a>
+        </div>
+        <div class="border border-ai/30 p-5">
+          <p class="text-xs text-kogane tracking-widest mb-2">TEL</p>
+          <a href="tel:0444336399" class="serif text-lg font-bold text-ai hover:text-shu">０４４—４３３—６３９９</a>
+          <p class="text-xs text-ai/60 mt-1">受付：平日 九時〜十七時三十分</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-sumi text-washi2 text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="../public/images/logo.svg" alt="" class="h-12 w-auto bg-washi p-1 rounded-sm" />
+        <p class="serif font-bold text-washi">株式会社鈴木エンタープライズ</p>
+      </div>
+      <p class="text-washi2/70 leading-relaxed text-xs">〒211-0025<br />神奈川県川崎市中原区木月2-2-34 鈴木ビル3F</p>
+    </div>
+    <div>
+      <p class="serif font-bold text-washi mb-3">お品書き</p>
+      <ul class="space-y-1.5 text-xs">
+        <li><a href="#about" class="hover:text-kogane">会社概要</a></li>
+        <li><a href="#concept" class="hover:text-kogane">企業理念</a></li>
+        <li><a href="#products" class="hover:text-kogane">取扱品目</a></li>
+        <li><a href="#history" class="hover:text-kogane">沿革</a></li>
+        <li><a href="#contact" class="hover:text-kogane">お問合せ</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="serif font-bold text-washi mb-3">ご連絡先</p>
+      <p class="text-xs">TEL：044-433-6399</p>
+      <p class="text-xs">FAX：044-434-8488</p>
+      <p class="mt-3 text-xs"><a href="#" class="text-washi2/70 hover:text-kogane">プライバシーポリシー</a></p>
+    </div>
+  </div>
+  <div class="border-t border-washi/10">
+    <p class="max-w-6xl mx-auto px-4 py-4 text-[10px] text-washi2/50 text-center serif">© SUZUKI ENTERPRISE CO., LTD. ｜ 創業 一九六七年</p>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('menu-toggle');
+  const m = document.getElementById('mobile-menu');
+  t?.addEventListener('click', () => m.classList.toggle('hidden'));
+  m?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => m.classList.add('hidden')));
+</script>
+
+</body>
+</html>
