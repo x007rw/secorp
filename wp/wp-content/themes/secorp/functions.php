@@ -50,6 +50,7 @@ add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mime
  * CSS / JS の読み込み
  * ============================================================ */
 add_action('wp_enqueue_scripts', function () {
+    // Tailwind CDN（同期読込、head内）
     wp_enqueue_script(
         'tailwind',
         'https://cdn.tailwindcss.com',
@@ -57,7 +58,7 @@ add_action('wp_enqueue_scripts', function () {
         null,
         false
     );
-
+    // CDN ロード後に config を上書き（再描画される）
     wp_add_inline_script('tailwind', "
         tailwind.config = {
             theme: {
@@ -72,7 +73,7 @@ add_action('wp_enqueue_scripts', function () {
                 }
             }
         };
-    ", 'before');
+    ", 'after');
 
     wp_enqueue_style(
         'secorp-fonts',

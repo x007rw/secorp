@@ -33,9 +33,10 @@
                 'menu_class'     => 'flex items-center gap-6 list-none m-0 p-0',
                 'fallback_cb'    => function () {
                     echo '<ul class="flex items-center gap-6 list-none m-0 p-0">';
-                    echo '<li><a href="' . esc_url(home_url('/company/about/')) . '" class="text-slate-700 hover:text-brand-600">会社概要</a></li>';
-                    echo '<li><a href="' . esc_url(home_url('/company/philosophy/')) . '" class="text-slate-700 hover:text-brand-600">企業理念</a></li>';
+                    echo '<li><a href="' . esc_url(home_url('/about/')) . '" class="text-slate-700 hover:text-brand-600">会社概要</a></li>';
+                    echo '<li><a href="' . esc_url(home_url('/philosophy/')) . '" class="text-slate-700 hover:text-brand-600">企業理念</a></li>';
                     echo '<li><a href="' . esc_url(home_url('/products/')) . '" class="text-slate-700 hover:text-brand-600">製品</a></li>';
+                    echo '<li><a href="' . esc_url(home_url('/history/')) . '" class="text-slate-700 hover:text-brand-600">沿革</a></li>';
                     echo '<li><a href="' . esc_url(home_url('/contact/')) . '" class="text-slate-700 hover:text-brand-600">お問い合わせ</a></li>';
                     echo '</ul>';
                 },
@@ -43,32 +44,39 @@
             ?>
         </nav>
 
-        <button id="menu-toggle" type="button" class="md:hidden p-2 -mr-2 text-slate-700" aria-label="menu" aria-expanded="false">
+        <div class="flex items-center gap-2">
+            <!-- Desktop: 言語切替 -->
+            <div class="hidden md:flex items-center gap-2 text-xs">
+                <a href="#" class="px-2 py-1 rounded border bg-brand-900 text-white border-brand-900">日本語</a>
+                <a href="#" class="px-2 py-1 rounded border border-slate-300 hover:bg-slate-100 text-slate-700">English</a>
+            </div>
+
+            <button id="menu-toggle" type="button" class="md:hidden p-2 -mr-2 text-slate-700" aria-label="menu" aria-expanded="false">
             <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
             </svg>
-        </button>
+            </button>
+        </div>
     </div>
 
     <nav id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
-        <?php
-        wp_nav_menu([
-            'theme_location' => 'primary',
-            'container'      => false,
-            'menu_class'     => 'px-4 py-1 list-none m-0',
-            'fallback_cb'    => function () {
-                echo '<ul class="px-4 py-1 list-none m-0">';
-                echo '<li><a href="' . esc_url(home_url('/company/about/')) . '" class="block py-3 text-base text-slate-700 border-b border-slate-100">会社概要</a></li>';
-                echo '<li><a href="' . esc_url(home_url('/company/philosophy/')) . '" class="block py-3 text-base text-slate-700 border-b border-slate-100">企業理念</a></li>';
-                echo '<li><a href="' . esc_url(home_url('/products/')) . '" class="block py-3 text-base text-slate-700 border-b border-slate-100">製品</a></li>';
-                echo '<li><a href="' . esc_url(home_url('/contact/')) . '" class="block py-3 text-base text-slate-700">お問い合わせ</a></li>';
-                echo '</ul>';
-            },
-        ]);
-        ?>
+        <ul class="px-4 py-1 list-none m-0">
+            <li><a href="<?php echo esc_url(home_url('/about/')); ?>" class="block py-3 text-base text-slate-700 border-b border-slate-100">会社概要</a></li>
+            <li><a href="<?php echo esc_url(home_url('/philosophy/')); ?>" class="block py-3 text-base text-slate-700 border-b border-slate-100">企業理念</a></li>
+            <li><a href="<?php echo esc_url(home_url('/products/')); ?>" class="block py-3 text-base text-slate-700 border-b border-slate-100">製品</a></li>
+            <li><a href="<?php echo esc_url(home_url('/history/')); ?>" class="block py-3 text-base text-slate-700 border-b border-slate-100">沿革</a></li>
+            <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="block py-3 text-base text-slate-700 border-b border-slate-100">お問い合わせ</a></li>
+        </ul>
+        <div class="px-4 py-4 bg-slate-50 border-t border-slate-200">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Language</p>
+            <div class="grid grid-cols-2 gap-2">
+                <a href="#" class="text-center py-2.5 rounded text-sm font-medium border bg-brand-900 text-white border-brand-900">日本語</a>
+                <a href="#" class="text-center py-2.5 rounded text-sm font-medium border bg-white border-slate-300 text-slate-700 hover:bg-slate-100">English</a>
+            </div>
+        </div>
     </nav>
 </header>
 
