@@ -1,0 +1,23 @@
+# 環境変数（パスワード等）
+.env
+
+# WordPress コア・コンテンツ（コンテナ管理）
+wp-content/uploads/*
+!wp-content/uploads/.gitkeep
+wp-content/upgrade/
+wp-content/cache/
+wp-content/db.php
+wp-content/object-cache.php
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# プラグインは個別追加判断（基本は除外）
+wp-content/plugins/*
+!wp-content/plugins/.gitkeep
+!wp-content/plugins/secorp-*
+
+# OS・エディタ
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

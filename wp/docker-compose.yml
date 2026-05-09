@@ -1,0 +1,86 @@
+# 株式会社鈴木エンタープライズ — WordPress 開発環境
+#
+# 使い方:
+#   1. .env.example を .env にコピー
+#   2. docker compose up -d
+#   3. http://localhost:8080/  ← WordPress
+#      http://localhost:8081/  ← phpMyAdmin
+#
+# 停止:    docker compose stop
+# 削除:    docker compose down
+# DB含めリセット: docker compose down -v
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-secorp_wp}
+      MYSQL_USER: ${MYSQL_USER:-wp_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wp_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-root_password}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wordpress:
+    image: wordpress:6.7-php8.2-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-secorp_wp}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wp_user}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wp_password}
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('SCRIPT_DEBUG', true);
+        define('DISALLOW_FILE_EDIT', true);
+    volumes:
+      - wordpress_core:/var/www/html
+      # テーマ・プラグインのみホスト側で管理（Git追跡可能）
+      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${PMA_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+      UPLOAD_LIMIT: 256M
+
+  # WP-CLI（管理コマンド用、必要時のみ起動）
+  # 使用例: docker compose run --rm wpcli wp plugin install yoast-seo --activate
+  wpcli:
+    image: wordpress:cli-php8.2
+    user: "33:33"  # www-data
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress_core:/var/www/html
+      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+    profiles: ["tools"]
+
+volumes:
+  db_data:
+  wordpress_core:
