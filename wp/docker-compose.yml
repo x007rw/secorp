@@ -73,7 +73,15 @@ services:
     image: wordpress:cli-php8.2
     user: "33:33"  # www-data
     depends_on:
-      - wordpress
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-secorp_wp}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wp_user}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wp_password}
     volumes:
       - wordpress_core:/var/www/html
       - ./wp-content/themes:/var/www/html/wp-content/themes

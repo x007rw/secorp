@@ -27,10 +27,29 @@ add_action('after_setup_theme', function () {
 });
 
 /* ============================================================
+ * SVG アップロード許可（信頼できる管理者のみ運用）
+ * ============================================================ */
+add_filter('upload_mimes', function ($mimes) {
+    $mimes['svg']  = 'image/svg+xml';
+    $mimes['webp'] = 'image/webp';
+    return $mimes;
+});
+add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
+    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+    if ($ext === 'svg') {
+        $data['ext']  = 'svg';
+        $data['type'] = 'image/svg+xml';
+    } elseif ($ext === 'webp') {
+        $data['ext']  = 'webp';
+        $data['type'] = 'image/webp';
+    }
+    return $data;
+}, 10, 4);
+
+/* ============================================================
  * CSS / JS の読み込み
  * ============================================================ */
 add_action('wp_enqueue_scripts', function () {
-    // Tailwind CSS（開発時は CDN、本番ビルドは別途）
     wp_enqueue_script(
         'tailwind',
         'https://cdn.tailwindcss.com',
@@ -39,7 +58,6 @@ add_action('wp_enqueue_scripts', function () {
         false
     );
 
-    // Tailwind 設定（ブランド色等）
     wp_add_inline_script('tailwind', "
         tailwind.config = {
             theme: {
@@ -56,7 +74,6 @@ add_action('wp_enqueue_scripts', function () {
         };
     ", 'before');
 
-    // Google Fonts
     wp_enqueue_style(
         'secorp-fonts',
         'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap',
@@ -64,7 +81,6 @@ add_action('wp_enqueue_scripts', function () {
         null
     );
 
-    // テーマ独自 CSS
     wp_enqueue_style(
         'secorp-style',
         get_stylesheet_uri(),
@@ -74,7 +90,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 /* ============================================================
- * カスタム投稿タイプ：製品
+ * カスタム投稿タイプ：製品 / お知らせ
  * ============================================================ */
 add_action('init', function () {
     register_post_type('product', [
@@ -91,7 +107,7 @@ add_action('init', function () {
         'has_archive'   => true,
         'menu_position' => 5,
         'menu_icon'     => 'dashicons-portfolio',
-        'supports'      => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'],
+        'supports'      => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'custom-fields'],
         'rewrite'       => ['slug' => 'products', 'with_front' => false],
         'show_in_rest'  => true,
     ]);
@@ -119,13 +135,10 @@ add_action('init', function () {
 /* ============================================================
  * セキュリティ・運用設定
  * ============================================================ */
-// 不要な情報の出力を抑制
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wp_shortlink_wp_head');
-
-// 絵文字スクリプトを無効化
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
