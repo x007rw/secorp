@@ -1,21 +1,18 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { getLocalizedPath } from '../../../i18n/ui';
+import { getProducts } from '../../../lib/microcms';
+import { localized } from '../../../types/microcms';
+
 const lang = 'en' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
-const products = [
-  { title: 'RC Segment', desc: 'Reinforced-concrete shield-tunnel lining segments, manufactured at overseas partner plants under Japanese-grade quality control.', href: '/products/shield-segment/rc/', img: '/images/products/rc-segment.webp' },
-  { title: 'Steel Segment', desc: 'Steel lining segments for gas, subway, and road tunnels — produced to ±1 mm dimensional tolerance.', href: '/products/shield-segment/steel/', img: '/images/products/steel-segment.webp' },
-  { title: 'Moulds (Formwork)', desc: 'High-precision formwork including RC-segment moulds (±0.5 mm), and PC slab moulds for highway repair.', href: '/products/mold/', img: '/images/products/mould.webp' },
-  { title: 'Steel Fiber (BUNDREX®)', desc: 'Structural reinforcement fiber for RC. Sole Japanese distributor of KOSTEEL BUNDREX® (Korea).', href: '/products/concrete-reinforcement/bundrex/', img: '/images/products/steel-fiber.webp' },
-  { title: 'Polypropylene Fiber', desc: 'Non-structural PP fiber preventing cracking and spalling. Supplied to leading Japanese general contractors.', href: '/products/concrete-reinforcement/pp-fiber/', img: '/images/products/pp-fiber.webp' },
-];
+const products = await getProducts();
 ---
 
 <Layout
   title="Products"
-  description="Product lineup of SUZUKI ENTERPRISE: RC and steel shield segments, civil/architectural moulds, steel fiber (KOSTEEL BUNDREX®), and PP fiber."
+  description="Our product lineup: RC and steel shield-tunnel segments, civil/architectural moulds, steel fiber (KOSTEEL BUNDREX®), and polypropylene fiber."
   lang={lang}
 >
   <section class="py-20 max-w-6xl mx-auto px-4">
@@ -26,13 +23,26 @@ const products = [
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {products.map((product) => (
-        <a href={p(product.href)} class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all">
+        <a
+          href={p(`/products/${product.slug}/`)}
+          class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all"
+        >
           <div class="aspect-video overflow-hidden bg-slate-100">
-            <img src={product.img} alt={product.title} width="800" height="450" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img
+              src={product.image.url}
+              alt={localized(product, 'title', lang)}
+              width="800"
+              height="450"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
           <div class="p-5">
-            <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">{product.title}</h3>
-            <p class="text-sm text-slate-600 leading-relaxed">{product.desc}</p>
+            <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">
+              {localized(product, 'title', lang)}
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{localized(product, 'excerpt', lang)}</p>
+            <span class="inline-block mt-3 text-xs font-semibold text-accent-600">Learn more →</span>
           </div>
         </a>
       ))}

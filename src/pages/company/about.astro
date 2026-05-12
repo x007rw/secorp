@@ -1,55 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const lang = 'ja' as const;
+import { getPageBySlug } from '../../lib/microcms';
+import { localized } from '../../types/microcms';
 
-const profile = [
-  { label: '会社名', value: '株式会社鈴木エンタープライズ / SUZUKI ENTERPRISE CO., LTD.' },
-  { label: '本社所在地', value: '〒211-0025 神奈川県川崎市中原区木月2-2-34 鈴木ビル3F' },
-  { label: 'TEL / FAX', value: 'TEL: 044-433-6399 / FAX: 044-434-8488' },
-  { label: '設立', value: '1967年7月' },
-  { label: '資本金', value: '8,000万円' },
-  { label: '法人番号', value: '3020001076051' },
-  { label: '代表者', value: '代表取締役　鈴木裕哉' },
-  { label: '事業内容', value: '土木・建設・プラント分野向け鉄鋼・非鉄金属原材料および加工品の輸入・卸売' },
-  { label: '主要取扱品', value: 'シールドセグメント（RC・鋼製）、コンクリート補強繊維、土木建築用型枠、防音・保温材' },
-  { label: '主要取引銀行', value: '三井住友銀行・横浜銀行・城南信用金庫' },
-];
+const lang = 'ja' as const;
+const page = await getPageBySlug('about');
+
+const title = page ? localized(page, 'title', lang) : '会社概要';
+const subtitle = page?.title_en ?? 'Company Overview';
+const body = page ? localized(page, 'body', lang) : '';
+const description = page ? localized(page, 'meta_description', lang) : undefined;
 ---
 
-<Layout
-  title="会社概要"
-  description="株式会社鈴木エンタープライズの会社概要。1967年創業、川崎市中原区を拠点とする土木・建設資材の専門商社。代表取締役 鈴木 裕哉。"
-  lang={lang}
->
-  <section class="py-20 max-w-6xl mx-auto px-4">
+<Layout title={title} description={description} lang={lang}>
+  <section class="py-20 max-w-4xl mx-auto px-4">
     <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
-      会社概要
+      {title}
     </h1>
-    <p class="text-sm text-slate-500 mb-10 ml-1">Company Overview</p>
-
-    <div class="grid md:grid-cols-2 gap-10">
-      <dl class="divide-y divide-slate-200 text-sm">
-        {profile.map((row) => (
-          <div class="grid grid-cols-3 gap-3 py-3.5">
-            <dt class="font-semibold text-slate-600 col-span-1">{row.label}</dt>
-            <dd class="col-span-2 text-slate-800">{row.value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div>
-        <iframe
-          class="w-full h-72 rounded shadow-sm border border-slate-200"
-          src="https://maps.google.co.jp/maps?q=Japan,kanagawa,kawasaki,nakaharaku,kizuki%202-2-34&z=15&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Map"
-        ></iframe>
-        <p class="mt-3 text-xs text-slate-500">
-          東急東横線・目黒線「元住吉」駅 東口より徒歩約1分<br />
-          JR南武線・東急東横線「武蔵小杉」駅 南口より徒歩約15分
-        </p>
-      </div>
-    </div>
+    <p class="text-sm text-slate-500 mb-10 ml-1">{subtitle}</p>
+    <div class="prose-jp" set:html={body}></div>
   </section>
 </Layout>

@@ -1,40 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const lang = 'ja' as const;
+import { getPageBySlug } from '../../lib/microcms';
+import { localized } from '../../types/microcms';
 
-const events = [
-  { year: '1967', body: '株式会社鈴木エンタープライズ設立' },
-  { year: '1972〜', body: '韓国浦項製鉄(POSCO)鋼材の本邦独占代理店として供給開始' },
-  { year: '1978〜', body: '中近東・アジア圏プロジェクト向け建設資材・機器の供給' },
-  { year: '1982〜', body: '韓国製鉄鋼製品（鋼管杭・溶接材料）の独自供給・販売システム構築' },
-  { year: '1988〜', body: '韓国製セメント（東洋セメント・雙龍セメント）の供給・販売開始' },
-  { year: '1996〜', body: 'RC・鋼製セグメントの海外調達・供給開始（国交省・鉄道・地下鉄・電気・ガス・水道シールド事業へ納入）' },
-  { year: '2008〜', body: 'コンクリート補強繊維（スチール／ポリプロピレン）の海外調達・供給（SFRCセグメント年間2,000MTペース）' },
-  { year: '2023〜', body: '土木・建築用型枠の包括的海外製造体制を構築' },
-];
+const lang = 'ja' as const;
+const page = await getPageBySlug('history');
+
+const title = page ? localized(page, 'title', lang) : '沿革';
+const subtitle = page?.title_en ?? 'History';
+const body = page ? localized(page, 'body', lang) : '';
+const description = page ? localized(page, 'meta_description', lang) : undefined;
 ---
 
-<Layout
-  title="沿革"
-  description="株式会社鈴木エンタープライズの沿革。1967年創業、POSCO日本独占代理店、シールドセグメント供給、コンクリート補強繊維SFRC年間2,000MT。"
-  lang={lang}
->
-  <section class="py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4">
-      <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
-        沿革
-      </h1>
-      <p class="text-sm text-slate-500 mb-10 ml-1">History</p>
-
-      <ol class="relative border-l-2 border-accent-400 space-y-6 pl-6">
-        {events.map((event) => (
-          <li class="relative">
-            <span class="absolute -left-[34px] top-1 w-3 h-3 rounded-full bg-accent-400 border-4 border-slate-50"></span>
-            <p class="text-accent-600 font-semibold text-base">{event.year}</p>
-            <p class="text-sm text-slate-700 mt-1 leading-relaxed">{event.body}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
+<Layout title={title} description={description} lang={lang}>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      {title}
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">{subtitle}</p>
+    <div class="prose-jp" set:html={body}></div>
   </section>
 </Layout>

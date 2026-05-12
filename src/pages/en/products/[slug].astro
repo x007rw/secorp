@@ -1,0 +1,73 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLocalizedPath } from '../../../i18n/ui';
+import { getProducts } from '../../../lib/microcms';
+import { localized } from '../../../types/microcms';
+
+export async function getStaticPaths() {
+  const products = await getProducts();
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const lang = 'en' as const;
+const p = (path: string) => getLocalizedPath(path, lang);
+
+const title = localized(product, 'title', lang);
+const excerpt = localized(product, 'excerpt', lang);
+const body = localized(product, 'body', lang);
+---
+
+<Layout title={title} description={excerpt} lang={lang}>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-slate-500 mb-4">
+      <a href={p('/products/')} class="hover:text-brand-600">Products</a>
+      <span class="mx-2">/</span>
+      <span>{title}</span>
+    </nav>
+
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-10 text-brand-900">
+      {title}
+    </h1>
+
+    {product.image && (
+      <img
+        src={product.image.url}
+        alt={title}
+        width={product.image.width || 1200}
+        height={product.image.height || 675}
+        class="w-full rounded shadow-sm border border-slate-200 mb-8"
+      />
+    )}
+
+    <div class="prose-jp text-slate-700 leading-relaxed">
+      <p class="text-lg mb-6">{excerpt}</p>
+      {body && <div set:html={body} />}
+    </div>
+
+    {product.spec && product.spec.length > 0 && (
+      <div class="mt-10">
+        <h2 class="text-xl font-bold mb-4 text-brand-900">Specifications</h2>
+        <table class="w-full border border-slate-200">
+          <tbody>
+            {product.spec.map((row) => (
+              <tr class="border-b border-slate-200">
+                <th class="bg-slate-50 px-4 py-3 text-left text-sm font-semibold text-slate-700 w-1/3">{row.label}</th>
+                <td class="px-4 py-3 text-sm text-slate-800">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    <div class="mt-12 pt-8 border-t border-slate-200">
+      <a href={p('/contact/')} class="inline-block bg-accent-400 text-brand-900 font-semibold px-6 py-3 rounded hover:bg-accent-300 transition-colors">
+        Inquire about this product
+      </a>
+    </div>
+  </section>
+</Layout>

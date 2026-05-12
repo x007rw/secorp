@@ -16,7 +16,7 @@ export const ui = {
     'nav.company': '企業情報',
     'nav.products': '製品',
     'nav.projects': '実績',
-    'nav.news': 'ニュース',
+    'nav.news': 'お知らせ',
     'nav.contact': 'お問い合わせ',
     'nav.about': '会社概要',
     'nav.philosophy': '企業理念',

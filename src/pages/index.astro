@@ -1,50 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getLocalizedPath } from '../i18n/ui';
+import { getProducts, getNews } from '../lib/microcms';
+import { localized } from '../types/microcms';
 
 const lang = 'ja' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
-// 1967年7月創業からの年数（ビルド時に算出）
 const yearsInBusiness = new Date().getFullYear() - 1967;
 
-const products = [
-  {
-    title: 'RCセグメント',
-    en: 'RC Segment',
-    desc: 'シールド工法で構築されるトンネルの鉄筋コンクリート製内壁パーツ。日本基準のセグメントを海外提携工場で監理生産します。',
-    href: '/products/shield-segment/rc/',
-    img: '/images/products/rc-segment.webp',
-  },
-  {
-    title: '鋼製セグメント',
-    en: 'Steel Segment',
-    desc: 'ガス導管・地下鉄・道路トンネル等に用いる鋼製の内壁セグメント。寸法精度 ±1mm 以内で量産対応。',
-    href: '/products/shield-segment/steel/',
-    img: '/images/products/steel-segment.webp',
-  },
-  {
-    title: '土木・建築用型枠',
-    en: 'Moulds (Formwork)',
-    desc: 'RCセグメント用型枠など、±0.5mm 以内の寸法精度を要求される高精度型枠。PC床板用型枠の海外製作にも対応。',
-    href: '/products/mold/',
-    img: '/images/products/mould.webp',
-  },
-  {
-    title: 'スチール・ファイバー',
-    en: 'Steel Fiber',
-    desc: '鉄筋と同じ「構造的補強」として用いる鋼繊維。韓国KOSTEEL社製 BUNDREX® の日本国内総代理店です。',
-    href: '/products/concrete-reinforcement/bundrex/',
-    img: '/images/products/steel-fiber.webp',
-  },
-  {
-    title: 'ポリプロピレン・ファイバー',
-    en: 'Polypropylene Fiber',
-    desc: 'コンクリートの非構造的補強(ひび割れ・剥離防止)に用いる高強度PP繊維。日本の大手ゼネコンに納入実績。',
-    href: '/products/concrete-reinforcement/pp-fiber/',
-    img: '/images/products/pp-fiber.webp',
-  },
-];
+const products = await getProducts();
+const latestNews = (await getNews(3));
 ---
 
 <Layout title="株式会社鈴木エンタープライズ" lang={lang}>
@@ -124,6 +90,36 @@ const products = [
     </div>
   </section>
 
+  <!-- NEWS（最新3件） -->
+  {latestNews.length > 0 && (
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-end justify-between mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 text-brand-900">
+            お知らせ
+          </h2>
+          <a href={p('/news/')} class="text-sm text-brand-600 hover:text-accent-600 font-semibold">
+            すべて見る →
+          </a>
+        </div>
+        <ul class="divide-y divide-slate-200 bg-white border border-slate-200 rounded">
+          {latestNews.map((n) => (
+            <li>
+              <a href={p(`/news/${n.slug}/`)} class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-5 hover:bg-slate-50 transition-colors">
+                <time class="text-xs text-slate-500 font-mono shrink-0 w-28">
+                  {new Date(n.published_at).toLocaleDateString('ja-JP')}
+                </time>
+                <span class="text-sm text-slate-800 font-medium">
+                  {localized(n, 'title', lang)}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <!-- PRODUCTS -->
   <section class="py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4">
@@ -133,13 +129,13 @@ const products = [
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <a
-            href={p(product.href)}
+            href={p(`/products/${product.slug}/`)}
             class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all"
           >
             <div class="aspect-video overflow-hidden bg-slate-100">
               <img
-                src={product.img}
-                alt={product.title}
+                src={product.image.url}
+                alt={localized(product, 'title', lang)}
                 width="800"
                 height="450"
                 loading="lazy"
@@ -147,11 +143,11 @@ const products = [
               />
             </div>
             <div class="p-5">
-              <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">{product.en}</p>
+              <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">{product.title_en ?? ''}</p>
               <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">
-                {product.title}
+                {localized(product, 'title', lang)}
               </h3>
-              <p class="text-sm text-slate-600 leading-relaxed">{product.desc}</p>
+              <p class="text-sm text-slate-600 leading-relaxed">{localized(product, 'excerpt', lang)}</p>
             </div>
           </a>
         ))}

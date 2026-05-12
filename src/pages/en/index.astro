@@ -1,16 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getLocalizedPath } from '../../i18n/ui';
+import { getProducts, getNews } from '../../lib/microcms';
+import { localized } from '../../types/microcms';
+
 const lang = 'en' as const;
 const p = (path: string) => getLocalizedPath(path, lang);
 
-const products = [
-  { title: 'RC Segment', desc: 'Reinforced-concrete shield-tunnel lining segments, manufactured at overseas partner plants under Japanese-grade quality control.', href: '/products/shield-segment/rc/', img: '/images/products/rc-segment.webp' },
-  { title: 'Steel Segment', desc: 'Steel lining segments for gas, subway, and road tunnels — produced to ±1 mm dimensional tolerance.', href: '/products/shield-segment/steel/', img: '/images/products/steel-segment.webp' },
-  { title: 'Moulds (Formwork)', desc: 'High-precision formwork including RC-segment moulds (±0.5 mm), and PC slab moulds for highway repair.', href: '/products/mold/', img: '/images/products/mould.webp' },
-  { title: 'Steel Fiber (BUNDREX®)', desc: 'Structural reinforcement fiber for RC. Sole Japanese distributor of KOSTEEL BUNDREX® (Korea).', href: '/products/concrete-reinforcement/bundrex/', img: '/images/products/steel-fiber.webp' },
-  { title: 'Polypropylene Fiber', desc: 'Non-structural PP fiber preventing cracking and spalling. Supplied to leading Japanese general contractors.', href: '/products/concrete-reinforcement/pp-fiber/', img: '/images/products/pp-fiber.webp' },
-];
+const products = await getProducts();
+const latestNews = await getNews(3);
 ---
 
 <Layout title="SUZUKI ENTERPRISE CO., LTD." lang={lang}>
@@ -43,6 +41,35 @@ const products = [
     </div>
   </section>
 
+  {latestNews.length > 0 && (
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-end justify-between mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 text-brand-900">
+            News
+          </h2>
+          <a href={p('/news/')} class="text-sm text-brand-600 hover:text-accent-600 font-semibold">
+            View all →
+          </a>
+        </div>
+        <ul class="divide-y divide-slate-200 bg-white border border-slate-200 rounded">
+          {latestNews.map((n) => (
+            <li>
+              <a href={p(`/news/${n.slug}/`)} class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-5 hover:bg-slate-50 transition-colors">
+                <time class="text-xs text-slate-500 font-mono shrink-0 w-28">
+                  {new Date(n.published_at).toLocaleDateString('en-US')}
+                </time>
+                <span class="text-sm text-slate-800 font-medium">
+                  {localized(n, 'title', lang)}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <section class="py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-8 text-brand-900">
@@ -50,13 +77,13 @@ const products = [
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <a href={p(product.href)} class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all">
+          <a href={p(`/products/${product.slug}/`)} class="group bg-white border border-slate-200 rounded overflow-hidden shadow-sm hover:shadow-md hover:border-accent-400 transition-all">
             <div class="aspect-video overflow-hidden bg-slate-100">
-              <img src={product.img} alt={product.title} width="800" height="450" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={product.image.url} alt={localized(product, 'title', lang)} width="800" height="450" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="p-5">
-              <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">{product.title}</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">{product.desc}</p>
+              <h3 class="font-bold mb-2 text-brand-900 group-hover:text-brand-600 transition-colors">{localized(product, 'title', lang)}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{localized(product, 'excerpt', lang)}</p>
             </div>
           </a>
         ))}

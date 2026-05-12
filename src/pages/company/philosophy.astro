@@ -1,105 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const lang = 'ja' as const;
+import { getPageBySlug } from '../../lib/microcms';
+import { localized } from '../../types/microcms';
 
-const visions = [
-  { num: 'VISION 1', body: '人間主義によって土木製品・インフラの品質の向上とコスト削減を同時に達成する。' },
-  { num: 'VISION 2', body: '広くアジアの人材・技術者を集め、プラットフォームを形成してアジアの土木・インフラに広く貢献する。' },
-  { num: 'VISION 3', body: 'アジア及び世界に同様のビジネスパートナーと集い、後世の人材の育成・技術の派生に努める。' },
-];
+const lang = 'ja' as const;
+const page = await getPageBySlug('philosophy');
+
+const title = page ? localized(page, 'title', lang) : '企業理念';
+const subtitle = page?.title_en ?? 'Our Concept';
+const body = page ? localized(page, 'body', lang) : '';
+const description = page ? localized(page, 'meta_description', lang) : undefined;
 ---
 
-<Layout
-  title="企業理念"
-  description="株式会社鈴木エンタープライズの企業理念とビジョン。アジアのインフラに安全性とコスト削減を提供することを使命に、人間主義によるイノベーションでインフラを支える。"
-  lang={lang}
->
-  <!-- Hero banner with tunnel image -->
-  <section class="relative bg-brand-900 text-white overflow-hidden">
-    <div class="absolute inset-0 opacity-30">
-      <img
-        src="/images/hero-tunnel.webp"
-        alt=""
-        class="w-full h-full object-cover"
-        loading="eager"
-        width="1920"
-        height="1081"
-      />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-900/85 to-brand-900/40"></div>
-    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-20">
-      <p class="text-xs uppercase tracking-widest text-accent-300 mb-3">Our Concept</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-        企業理念
-      </h1>
-      <p class="mt-4 text-slate-100 max-w-2xl">
-        アジアのインフラに、安全性とコスト削減を提供する。
-      </p>
-    </div>
-  </section>
-
-  <!-- Greeting + concept diagram -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold border-l-4 border-accent-400 pl-3 mb-6 text-brand-900">
-        ご挨拶
-      </h2>
-      <div class="space-y-5 leading-relaxed text-slate-700">
-        <p>
-          私共、株式会社鈴木エンタープライズは半世紀以上にわたり東アジアを中心に、鉄鋼・土木建築資材の品質向上とコスト削減に努めて参りました。今後も日本のインフラ事業の安全性の向上、高品質、コスト削減に努めて参ります。
-        </p>
-        <p>
-          しかしながら本邦並びに先進国の多くは出生率低下による人口の減少、ひいては日本の土木・インフラ事業に関わる技術者や作業員の減少にともない、新旧合わせたインフラ構造物の評価・検査体制の維持が困難になっております。そして本邦ではインフラや土木構造物の安全率を高める命題のあまりに人件費の高騰を招き、ひいてはインフラ事業そのもののコストが大幅に上昇している現況です。
-        </p>
-        <p>
-          私共はこういった二律背反の命題、安全率の向上とコスト削減を同時に達成する為に、何が必要か長年考えて参りましたが、それはやはり人間の自由な意志と発想によるイノベーション（Innovation）に他ならないと確信しております。ここで言うイノベーションとは、ドラスティックな発明でなくとも、これら製品の製造工程を改良することによって、コスト削減も品質向上も同時に成しえることも入ります。
-        </p>
-        <p>
-          実際に私共の鋼製セグメントの製造監理チームは各種提携工場においてある特殊な工法を導入することによって、これを（コスト削減と品質向上の両立）を達成しました。
-        </p>
-        <p>
-          私共の製造監理技術者のみならず、アジアに広がる提携先の製造工場の技術者も日本のみならずアジアの宝だと信じております。この為には、これら技術者の知見をITによって「見える化・データ化」も必要になってきますが、これは今後の課題です。今は私共と提携工場の技術者を含めて組織化し、プラットフォーム又は「ビジネス・エコシステム」を構築し、アジア、ひいては世界の土木・インフラに安全性とコスト削減の両立を提案してまいります。
-        </p>
-      </div>
-
-      <!-- U-curve concept diagram -->
-      <img
-        src="/images/philosophy-diagram.webp"
-        alt="安全性向上とコスト削減のU字型コスト概念図"
-        width="910"
-        height="561"
-        loading="lazy"
-        class="mt-10 w-full h-auto"
-      />
-
-      <!-- Reference -->
-      <p class="mt-6 text-xs text-slate-500">
-        参考：慶應義塾大学 商学研究科 菊澤研宗教授（2017）『組織の不条理』中公文庫
-      </p>
-    </div>
-  </section>
-
-  <!-- Philosophy + Visions -->
-  <section class="py-16 md:py-20 bg-slate-50">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold border-l-4 border-accent-400 pl-3 mb-6 text-brand-900">
-        企業理念
-      </h2>
-      <p class="text-base md:text-lg text-slate-700 mb-12">
-        アジアのインフラに、安全性とコスト削減を提供する。
-      </p>
-
-      <h2 class="text-xl md:text-2xl font-bold border-l-4 border-accent-400 pl-3 mb-8 text-brand-900">
-        企業ヴィジョン
-      </h2>
-      <div class="grid sm:grid-cols-3 gap-4">
-        {visions.map((vision) => (
-          <div class="bg-white p-6 rounded shadow-sm border border-slate-200">
-            <p class="text-accent-600 font-semibold text-sm mb-3 tracking-wider">{vision.num}</p>
-            <p class="text-sm text-slate-700 leading-relaxed">{vision.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+<Layout title={title} description={description} lang={lang}>
+  <section class="py-20 max-w-3xl mx-auto px-4">
+    <h1 class="text-2xl md:text-3xl font-bold border-l-4 border-accent-400 pl-3 mb-2 text-brand-900">
+      {title}
+    </h1>
+    <p class="text-sm text-slate-500 mb-10 ml-1">{subtitle}</p>
+    <div class="prose-jp" set:html={body}></div>
   </section>
 </Layout>

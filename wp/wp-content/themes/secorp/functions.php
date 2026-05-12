@@ -134,6 +134,20 @@ add_action('init', function () {
 });
 
 /* ============================================================
+ * ファビコン（Astro版と同一構成）
+ * 管理画面の「サイトアイコン」設定よりテーマ固定を優先
+ * ============================================================ */
+add_action('wp_head', function () {
+    $base = get_template_directory_uri() . '/assets/images';
+    echo '<link rel="icon" type="image/svg+xml" href="' . esc_url($base . '/logo.svg') . '" />' . "\n";
+    echo '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url($base . '/favicon-32.png') . '" />' . "\n";
+    echo '<link rel="icon" type="image/png" sizes="192x192" href="' . esc_url($base . '/favicon-192.png') . '" />' . "\n";
+    echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url($base . '/apple-touch-icon.png') . '" />' . "\n";
+}, 2);
+// WPコアの site-icon 出力を抑止（テーマ側のタグと重複させない）
+remove_action('wp_head', 'wp_site_icon', 99);
+
+/* ============================================================
  * セキュリティ・運用設定
  * ============================================================ */
 remove_action('wp_head', 'wp_generator');
